@@ -13,7 +13,7 @@ class ProductListView(ListView):
         # Call the base implementation first to get a context
         context = super(ProductListView, self).get_context_data(**kwargs)
         # Add in a QuerySet of all the categories
-        #context['category_list'] = Category.objects.all()
+        context['category_list'] = Category.objects.all()
         #context['pages'] = len(Category.objects.all()) / 20 + 1
         #context['form'] = PresentationForm()
         return context

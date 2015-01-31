@@ -19,14 +19,14 @@
 
         <!-- page-title start -->
         <!-- ================ -->
-        <h1 class="page-title">Présentations</h1>
+        <h1 class="page-title">Produits</h1>
         <div class="separator-2"></div>
-        <p class="lead">Depuis le menu à droite, triez les présentation par date ou recherchez par mot-clef</p>
+        <p class="lead">Depuis le menu à droite, triez les produits par date, catégorie ou recherchez par mot-clef</p>
         <!-- page-title end -->
 
         <!-- portfolio items start -->
         <div class="image-boxes isotope-container row">
-          {% for presentation in presentation_list %}
+          {% for product in product_list %}
           <div class="col-sm-6 isotope-item web-design">
             <div class="image-box">
               <div class="overlay-container">
@@ -35,12 +35,12 @@
                   <div class="overlay-links">
                     <a href="#"><i class="fa fa-link"></i></a>
                   </div>
-                  <span>{% for category in presentation.categories.all %}{{category.title}} {% endfor %}</span>
+                  <span>{% for category in product.categories.all %}{{category.title}} {% endfor %}</span>
                 </div>
               </div>
               <div class="image-box-body">
-                <h3 class="title"><a href="portfolio-item.html">{{ presentation.title }}</a></h3>
-                <p>{{ presentation.description}}</p>
+                <h3 class="title"><a href="portfolio-item.html">{{ product.title }}</a></h3>
+                <p>{{ product.description}}</p>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
         </button>
 
         <!-- Modal -->
-        {% include "presentations/presentation_form.html" %}
+        <!--{% include "products/product_form.html" %}-->
 
         <!-- Modal end -->
 
