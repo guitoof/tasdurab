@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- section start -->
+<!-- ================ -->
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-md-8">
+
+        <!-- page-title start -->
+        <!-- ================ -->
+        <h1 class="page-title">Présentations</h1>
+        <div class="separator-2"></div>
+        <p class="lead">Depuis le menu à droite, triez les présentation par date ou recherchez par mot-clef</p>
+        <!-- page-title end -->
+
+        <!-- portfolio items start -->
+        <div class="image-boxes isotope-container row">
+          {% for presentation in presentation_list %}
+          <div class="col-sm-6 isotope-item web-design">
+            <div class="image-box">
+              <div class="overlay-container">
+                <img src="{% static 'presentations/portfolio-1.jpg' %}" alt="">
+                <div class="overlay">
+                  <div class="overlay-links">
+                    <a href="#"><i class="fa fa-link"></i></a>
+                  </div>
+                  <span>{% for category in presentation.categories.all %}{{category.title}} {% endfor %}</span>
+                </div>
+              </div>
+              <div class="image-box-body">
+                <h3 class="title"><a href="portfolio-item.html">{{ presentation.title }}</a></h3>
+                <p>{{ presentation.description}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <!-- portfolio items end -->
+
+        <!-- pagination start -->
+        {% if pages > 1 %}
+        <ul class="pagination">
+          <li><a href="#">«</a></li>
+          {% for }
+          <li class="active"><a href="#">{{ pages }} <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">»</a></li>
+        </ul>
+        {% endif %}
+        <!-- pagination end -->
+
+      </div>
+      <!-- main end -->
+
+      <!-- sidebar start -->
+      <aside class="col-md-3 col-md-offset-1">
+
+        <!-- Modal start -->
+        <!-- ============================================================================== -->
+        <!-- Button trigger modal -->
+        <button class="btn btn-default" data-toggle="modal" data-target="#createPresentationModal">
+          Launch modal
+        </button>
+
+        <!-- Modal -->
+        {% include "presentations/presentation_form.html" %}
+
+        <!-- Modal end -->
+
+        <div class="sidebar">
+          <div class="block clearfix">
+            <h3 class="title">Catégories</h3>
+            <div class="separator"></div>
+            <div class="tags-cloud">
+              {% for category in category_list %}
+              <div class="tag">
+                <a href="#">{{ category.title }}</a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="block clearfix">
+            <form role="search">
+              <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Rechercher">
+                <i class="fa fa-search form-control-feedback"></i>
+              </div>
+            </form>
+          </div>
+        </div>
+      </aside>
+      <!-- sidebar end -->
+
+    </div>
+  </div>
+</section>
+<!-- main-container end -->
+<!-- section end -->
+<!-- section end -->
+
+
+{% endblock %}

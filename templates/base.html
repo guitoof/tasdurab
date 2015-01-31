@@ -1,0 +1,217 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Club de Médecine Interne{% endblock %}</title>
+  <meta name="description" content="Club de Médecine Interne">
+  <meta name="author" content="github.com/wrousseau">
+
+  <!-- Mobile Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+  <!-- Web Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+
+  <!-- Font Awesome CSS -->
+  <link href="{% static "fonts/font-awesome/css/font-awesome.css" %}" rel="stylesheet">
+
+  <!-- Fontello CSS -->
+  <link href="{% static "fonts/fontello/css/fontello.css" %}" rel="stylesheet">
+
+  <!-- Plugins -->
+  <link href="{% static "plugins/rs-plugin/css/settings.css" %}" media="screen" rel="stylesheet">
+  <link href="{% static "plugins/rs-plugin/css/extralayers.css" %}" media="screen" rel="stylesheet">
+  <link href="{% static "plugins/magnific-popup/magnific-popup.css" %}" rel="stylesheet">
+  <link href="{% static "css/animations.css" %}" rel="stylesheet">
+  <link href="{% static "plugins/owl-carousel/owl.carousel.css" %}" rel="stylesheet">
+
+  <!-- iDea core CSS file -->
+  <link href="{% static "css/style.css" %}" rel="stylesheet">
+
+  <!-- Color Scheme (In order to change the color scheme, replace the red.css with the color scheme that you prefer)-->
+  <link href="{% static "css/skins/light_blue.css" %}" rel="stylesheet">
+
+  <!-- Custom css -->
+  <link href="{% static "css/custom.css" %}" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- body classes:
+"boxed": boxed layout mode e.g. <body class="boxed">
+"pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1">
+-->
+<body class="front no-trans">
+  <!-- scrollToTop -->
+  <!-- ================ -->
+  <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+
+  <!-- page wrapper start -->
+  <!-- ================ -->
+  <div class="page-wrapper">
+
+    <!-- header start classes:
+    fixed: fixed navigation mode (sticky menu) e.g. <header class="header fixed clearfix">
+    dark: dark header version e.g. <header class="header dark clearfix">
+    ================ -->
+    <header class="header fixed clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- header-left start -->
+            <!-- ================ -->
+            <div class="header-left clearfix">
+
+              <!-- logo -->
+              <div class="logo">
+                <a href="{% url 'presentations:index' %}"><img id="logo" src="{% static "images/logo_light_blue.png" %}" alt="iDea"></a>
+              </div>
+
+              <!-- name-and-slogan -->
+              <div class="site-slogan">
+                Club de Médecine Interne
+              </div>
+
+            </div>
+            <!-- header-left end -->
+
+          </div>
+          <div class="col-md-9">
+
+            <!-- header-right start -->
+            <!-- ================ -->
+            <div class="header-right clearfix">
+
+              {% include "menu.html" %}
+
+            </div>
+            <!-- header-right end -->
+
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+    {% block pageIntro %}
+    <!-- page-intro start-->
+    <!-- ================ -->
+    <div class="page-intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home pr-10"></i><a href="{% url 'presentations:index' %}">Accueil</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- page-intro end -->
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- footer start (Add "light" class to #footer in order to enable light footer) -->
+    <!-- ================ -->
+    <footer id="footer">
+
+      <!-- .subfooter start -->
+      <!-- ================ -->
+      <div class="subfooter">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+              <nav class="navbar navbar-default" role="navigation">
+                <!-- Toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                  <ul class="nav navbar-nav">
+                    <li><a href="{% url 'presentations:index' %}">Présentations</a></li>
+                    <li><a href="{% url 'links:index' %}">Liens</a></li>
+                    <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- .subfooter end -->
+
+    </footer>
+    <!-- footer end -->
+
+  </div>
+  <!-- page-wrapper end -->
+
+  <!-- JavaScript files placed at the end of the document so the pages load faster
+  ================================================== -->
+  <!-- Jquery and Bootstap core js files -->
+  <script type="text/javascript" src="{% static "plugins/jquery.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+
+  <!-- Modernizr javascript -->
+  <script type="text/javascript" src="{% static "plugins/modernizr.js" %}"></script>
+
+  <!-- jQuery REVOLUTION Slider  -->
+  <script type="text/javascript" src="{% static "plugins/rs-plugin/js/jquery.themepunch.tools.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "plugins/rs-plugin/js/jquery.themepunch.revolution.min.js" %}"></script>
+
+  <!-- Isotope javascript -->
+  <script type="text/javascript" src="{% static "plugins/isotope/isotope.pkgd.min.js" %}"></script>
+
+  <!-- Owl carousel javascript -->
+  <script type="text/javascript" src="{% static "plugins/owl-carousel/owl.carousel.js" %}"></script>
+
+  <!-- Magnific Popup javascript -->
+  <script type="text/javascript" src="{% static "plugins/magnific-popup/jquery.magnific-popup.min.js" %}"></script>
+
+  <!-- Appear javascript -->
+  <script type="text/javascript" src="{% static "plugins/jquery.appear.js" %}"></script>
+
+  <!-- Count To javascript -->
+  <script type="text/javascript" src="{% static "plugins/jquery.countTo.js" %}"></script>
+
+  <!-- Parallax javascript -->
+  <script src="{% static "plugins/jquery.parallax-1.1.3.js" %}"></script>
+
+  <!-- Contact form -->
+  <script src="{% static "plugins/jquery.validate.js" %}"></script>
+
+  <!-- Initialization of Plugins -->
+  <script type="text/javascript" src="{% static "js/template.js" %}"></script>
+
+  <!-- Custom Scripts -->
+  <script type="text/javascript" src="{% static "js/custom.js" %}"></script>
+
+</body>
+</html>
