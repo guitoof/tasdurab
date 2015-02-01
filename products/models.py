@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from user_profiles.models import UserProfile
 
 # Create your models here.
 
@@ -14,6 +14,6 @@ class Product(models.Model):
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=2048)
     expiry_date = models.DateTimeField('expiry date')
-    owner = models.ForeignKey(User)
+    owner = models.ForeignKey(UserProfile)
 
     pub_date = models.DateTimeField('date published')
