@@ -1,7 +1,7 @@
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from products.models import Product, Category
-#from products.forms import ProductForm
+from products.forms import ProductForm
 
 class ProductListView(ListView):
 
@@ -14,8 +14,9 @@ class ProductListView(ListView):
         context = super(ProductListView, self).get_context_data(**kwargs)
         # Add in a QuerySet of all the categories
         context['category_list'] = Category.objects.all()
-        #context['pages'] = len(Category.objects.all()) / 20 + 1
-        #context['form'] = PresentationForm()
+        # Add the create Product form to the QuerySet to be display in a modal
+        context['form'] = ProductForm()
+
         return context
 
 
