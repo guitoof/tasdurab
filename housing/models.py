@@ -14,10 +14,10 @@ class Building(models.Model):
 
 class Room(models.Model):
 
-    number = models.IntegerField()
+    number = models.CharField(max_length=3)
 
     def __unicode__(self):
-        return '%d' % self.number
+        return '%s' % self.number
 
     def __str__(self):
-        return "%d" % self.number
+        return "%s" % self.number
