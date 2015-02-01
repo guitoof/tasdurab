@@ -4,5 +4,6 @@ from django.contrib import admin
 urlpatterns = patterns('',
     url(r'^$', include('products.urls', namespace='products')),
     url(r'^products', include('products.urls', namespace='products')),
+    url(r'^cas/', include('cas_consumer.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

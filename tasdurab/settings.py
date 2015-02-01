@@ -37,8 +37,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cas_consumer',
     'products',
-    'user_profiles'
+    'users',
+    'housing'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,8 +50,22 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 )
+
+# AUTHENTICATION_BACKENDS = (
+#     'cas_consumer.backends.CASBackend'
+# )
+
+
+CAS_SERVICE = 'https://cascad.ensta.fr'
+CAS_BASE = 'https://cascad.ensta.fr/'
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+CAS_NEXT_DEFAULT = 'localhost:8100'
+CAS_REDIRECT_ON_LOGOUT = 'localhost:8100'
+
 
 ROOT_URLCONF = 'tasdurab.urls'
 
@@ -65,6 +81,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+from users.models import getUserInfo
+CAS_USERINFO_CALLBACK = getUserInfo
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
