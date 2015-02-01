@@ -40,8 +40,14 @@ def getUserInfo(user):
         Their implementations are not important for this
         example.
     """
-    user.username = getLogin(user.username)
-    user.save()
+
+    current_user = User.objects.get(username=user.username)
+
+    # if (!current_user):
+    #     print current_user
+    #     current_user.username = user.username
+
+    current_user.save()
 
 # class User(Model):
 #
