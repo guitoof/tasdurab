@@ -7,7 +7,7 @@ You obviously need Python and pip installed for this to work. Please use a virtu
 
 You will need to have both of these tools installed
 
-	pip install virtualenv virtuanenvwrapper
+	pip install virtualenv virtualenvwrapper
 
 Add in your .bashrc or .zshrc the following lines
 
@@ -16,8 +16,8 @@ Add in your .bashrc or .zshrc the following lines
 
 You can then open a new terminal window, or resource your .bashrc (or .zshrc) and create the virtual env
 
-	mkvirtualenv clubmedecineinterne
-	workon clubmedecineinterne
+	mkvirtualenv tasdurab
+	workon tasdurab
 
 ## Installing dependencies
 
