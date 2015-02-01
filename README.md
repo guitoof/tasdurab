@@ -26,7 +26,7 @@ cd into the repository and run the following command to install all dependencies
 	pip install -r requirements.txt
 	
 ## This app relies on django-cas to handle the notification
-Download the django-cas repository : https://bitbucket.org/cpcc/django-cas/downloads
+Download the django-cas repository : https://github.com/Nitron/django-cas-consumer
 
 	cd my/path/to/the/django-cas/repository
 	python setup.py install
