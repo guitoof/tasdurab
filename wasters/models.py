@@ -2,7 +2,7 @@ from django.db import models
 
 from housing.models import Building, Room
 
-class User(models.Model):
+class Waster(models.Model):
 
     username = models.CharField(max_length=255, unique=True, db_index=True)
     first_name = models.CharField(max_length=255)
@@ -36,31 +36,10 @@ def getUserInfo(user):
         example.
     """
 
-    current_user = User.objects.get(username=user.username)
+    waster = Waster.objects.get(username=user.username)
 
-    # if (!current_user):
-    #     print current_user
-    #     current_user.username = user.username
+    if not waster:
+        print current_user
+        current_user.username = user.username
 
-    current_user.save()
-
-# class User(Model):
-#
-#     username = CharField(max_length=255)
-#     first_name = CharField(max_length=255)
-#     last_name = CharField(max_length=255)
-#     group = CharField(max_length=255)
-#
-#     # Contact
-#     email = CharField(max_length=255)
-#     phone_number = CharField(max_length=255, default='')
-#
-#     # Housing
-#     building = ForeignKey(Building, default='')
-#     room = ForeignKey(Room, default='')
-#
-#     def __unicode__(self):
-#         return '%s %s' % (self.user.first_name, self.user.last_name)
-#
-#     def __str__(self):
-#         return '%s %s' % (self.user.first_name, self.user.last_name)
+    waster.save()

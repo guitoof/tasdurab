@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'cas_consumer',
     'products',
-    'users',
+    'wasters',
     'housing'
 )
 
@@ -82,7 +82,7 @@ DATABASES = {
     }
 }
 
-from users.models import getUserInfo
+from wasters.models import getUserInfo
 CAS_USERINFO_CALLBACK = getUserInfo
 
 # Internationalization
