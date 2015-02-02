@@ -26,20 +26,3 @@ class Waster(models.Model):
 
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
-
-
-
-def getUserInfo(user):
-    """ Calls getFirstName, getLastName, getEmail, which call
-        a remote service to get that information.
-        Their implementations are not important for this
-        example.
-    """
-
-    waster = Waster.objects.get(username=user.username)
-
-    if not waster:
-        print current_user
-        current_user.username = user.username
-
-    waster.save()

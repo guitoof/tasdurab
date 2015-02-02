@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cas_consumer',
     'products',
     'wasters',
     'housing'
@@ -53,18 +52,22 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 )
 
-# AUTHENTICATION_BACKENDS = (
-#     'cas_consumer.backends.CASBackend'
-# )
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'django_cas_ng.backends.CASBackend',
+)
 
 
-CAS_SERVICE = 'https://cascad.ensta.fr'
-CAS_BASE = 'https://cascad.ensta.fr/'
-
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-CAS_NEXT_DEFAULT = 'localhost:8100'
-CAS_REDIRECT_ON_LOGOUT = 'localhost:8100'
+CAS_SERVER_URL = 'https://cascad.ensta.fr/'
+CAS_CREATE_USER = False
+CAS_LOGOUT_COMPLETELY = True
+CAS_IGNORE_REFERER = True
+CAS_REDIRECT_URL = 'http://localhost:8000'
+# LOGIN_URL = 'login'
+# LOGOUT_URL = 'logout'
+# CAS_SERVICE = 'http://localhost:8000'
+# CAS_NEXT_DEFAULT = 'http://localhost:8000'
+# CAS_REDIRECT_ON_LOGOUT = 'http://localhost:8000'
 
 
 ROOT_URLCONF = 'tasdurab.urls'
@@ -81,9 +84,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-from wasters.models import getUserInfo
-CAS_USERINFO_CALLBACK = getUserInfo
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

@@ -1,1 +1,4 @@
 Django==1.7.4
+django-cas==2.1.1
+django-cas-consumer==0.1.dev0
+django-cas-ng==3.4.2
