@@ -39,8 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products',
     'users',
+    'products',
     'housing'
 )
 
@@ -60,11 +60,11 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
+# CAS settings
 CAS_SERVER_URL = 'https://cascad.ensta.fr/'
-CAS_CREATE_USER = False
-CAS_LOGOUT_COMPLETELY = True
+CAS_CREATE_USER = True
 CAS_IGNORE_REFERER = True
-CAS_REDIRECT_URL = 'http://localhost:8000'
+CAS_REDIRECT_URL = 'http://localhost:8000/'
 
 
 ROOT_URLCONF = 'tasdurab.urls'

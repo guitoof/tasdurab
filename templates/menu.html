@@ -26,10 +26,11 @@
             <a href="{% url 'products:index' %}">Produits</a>
           </li>
           <li>
-            <a href="{% url 'login' %}">Connexion</a>
-          </li>
-          <li>
+            {% if user.is_authenticated %}
             <a href="{% url 'logout' %}">Déconnexion</a>
+            {%else%}
+            <a href="{% url 'login' %}">Connexion</a>
+            {%endif%}
           </li>
         </ul>
       </div>
