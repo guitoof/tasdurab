@@ -37,7 +37,8 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
 
-    username = models.CharField(max_length=255, unique=True, db_index=True)
+    id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=255, unique=True)
     first_name = models.CharField(max_length=255, default='')
     last_name = models.CharField(max_length=255, default='')
     graduation_year = models.CharField(max_length=10, default='')

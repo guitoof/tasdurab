@@ -25,12 +25,17 @@
           <li>
             <a href="{% url 'products:index' %}">Produits</a>
           </li>
-          <li>
-            {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}">Déconnexion</a>
-            {%else%}
-            <a href="{% url 'login' %}">Connexion</a>
-            {%endif%}
+          {% if user.is_authenticated %}
+          <li class="dropdown">
+            <a href="{% url 'users:detail' user.id %}" class="dropdown-toggle" data-toggle="dropdown">{{ user }}</a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url 'users:detail' user.id %}">Mon profil</a></li>
+              <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+            </ul>
+          </li>
+          {%else%}
+          <li><a href="{% url 'login' %}">Connexion</a></li>
+          {%endif%}
           </li>
         </ul>
       </div>
