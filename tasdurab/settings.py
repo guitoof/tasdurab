@@ -27,6 +27,8 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+AUTH_USER_MODEL = 'users.User'
+
 
 # Application definition
 
@@ -38,7 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
-    'wasters',
+    'users',
     'housing'
 )
 
@@ -63,11 +65,6 @@ CAS_CREATE_USER = False
 CAS_LOGOUT_COMPLETELY = True
 CAS_IGNORE_REFERER = True
 CAS_REDIRECT_URL = 'http://localhost:8000'
-# LOGIN_URL = 'login'
-# LOGOUT_URL = 'logout'
-# CAS_SERVICE = 'http://localhost:8000'
-# CAS_NEXT_DEFAULT = 'http://localhost:8000'
-# CAS_REDIRECT_ON_LOGOUT = 'http://localhost:8000'
 
 
 ROOT_URLCONF = 'tasdurab.urls'

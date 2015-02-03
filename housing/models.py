@@ -3,7 +3,7 @@ from django.db import models
 
 class Building(models.Model):
 
-    title = models.CharField(max_length=2)
+    title = models.CharField(max_length=2, default='')
 
     def __unicode__(self):
         return '%s' % self.title
@@ -14,7 +14,7 @@ class Building(models.Model):
 
 class Room(models.Model):
 
-    number = models.CharField(max_length=3)
+    number = models.IntegerField(default=0)
 
     def __unicode__(self):
         return '%s' % self.number
