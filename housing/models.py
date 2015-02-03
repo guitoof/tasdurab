@@ -14,7 +14,7 @@ class Building(models.Model):
 
 class Room(models.Model):
 
-    number = models.IntegerField(default=0)
+    number = models.IntegerField()
 
     def __unicode__(self):
         return '%s' % self.number
