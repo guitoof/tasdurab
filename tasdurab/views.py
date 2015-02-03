@@ -3,8 +3,9 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 
 def home(request):
-    print request
-    #latest_question_list = Question.objects.order_by('-pub_date')[:5]
+
+    #if user.is_authenticated:
+
     template = loader.get_template('index.html')
     context = RequestContext(request, {
         #'latest_question_list': latest_question_list,
