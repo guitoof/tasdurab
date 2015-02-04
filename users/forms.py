@@ -8,12 +8,10 @@ class CustomUserCreationForm(UserCreationForm):
     password.
     """
 
-    #def __init__(self, *args, **kargs):
-    #    super(CustomUserCreationForm, self).__init__(*args, **kargs)
-
     class Meta:
         model = User
         fields = ('email',)
+
 
 class CustomUserChangeForm(UserChangeForm):
     """A form for updating users. Includes all the fields on
@@ -21,9 +19,6 @@ class CustomUserChangeForm(UserChangeForm):
     password hash display field.
     """
 
-    # def __init__(self, *args, **kargs):
-    #     super(CustomUserChangeForm, self).__init__(*args, **kargs)
-    #     del self.fields['username']
-
     class Meta:
         model = User
+        fields = '__all__'
