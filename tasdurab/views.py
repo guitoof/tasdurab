@@ -1,13 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import RequestContext, loader
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 def home(request):
 
-    #if user.is_authenticated:
-
-    template = loader.get_template('index.html')
-    context = RequestContext(request, {
-        #'latest_question_list': latest_question_list,
-    })
-    return HttpResponse(template.render(context))
+    user = request.user
+    if user.is_authenticated() and not user.is_registered:
+        return HttpResponseRedirect(reverse('users:create'))
+    else:
+        return HttpResponseRedirect(reverse('products:index'))

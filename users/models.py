@@ -15,9 +15,10 @@ class UserManager(BaseUserManager):
     def create_user(self, username, password=None):
         if not username:
             raise ValueError('The given username must be set')
-        user = self.model(username=username)
+        user = self.model(username=username,
+                          password=password)
 
-        user.set_password(password)
+        #user.set_password(password)
         user.save()
         return user
 
@@ -55,6 +56,7 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
+    is_registered = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
@@ -91,42 +93,3 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return self.is_admin
-
-
-
-
-# def getUserInfo(user):
-#     """ Calls getFirstName, getLastName, getEmail, which call
-#         a remote service to get that information.
-#         Their implementations are not important for this
-#         example.
-#     """
-#
-#     current_user = User.objects.get(username=user.username)
-#
-#     # if (!current_user):
-#     #     print current_user
-#     #     current_user.username = user.username
-#
-#     current_user.save()
-
-# class User(Model):
-#
-#     username = CharField(max_length=255)
-#     first_name = CharField(max_length=255)
-#     last_name = CharField(max_length=255)
-#     group = CharField(max_length=255)
-#
-#     # Contact
-#     email = CharField(max_length=255)
-#     phone_number = CharField(max_length=255, default='')
-#
-#     # Housing
-#     building = ForeignKey(Building, default='')
-#     room = ForeignKey(Room, default='')
-#
-#     def __unicode__(self):
-#         return '%s %s' % (self.user.first_name, self.user.last_name)
-#
-#     def __str__(self):
-#         return '%s %s' % (self.user.first_name, self.user.last_name)
