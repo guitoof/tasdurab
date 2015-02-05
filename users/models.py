@@ -13,7 +13,7 @@ class Group(models.Model):
 
     class Meta:
         verbose_name = u'Groupe'
-        verbose_name_plural = u'Groupe'
+        verbose_name_plural = u'Groupes'
 
     def __unicode__(self):
         return self.title
