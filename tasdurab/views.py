@@ -5,6 +5,7 @@ def home(request):
 
     user = request.user
     if user.is_authenticated() and not user.is_registered:
-        return HttpResponseRedirect(reverse('users:create'))
+        url = reverse('users:register')
+        return HttpResponseRedirect(url)
     else:
         return HttpResponseRedirect(reverse('products:index'))
