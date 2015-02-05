@@ -34,7 +34,6 @@ class UserManager(BaseUserManager):
         user = self.model(username=username,
                           password=password)
 
-        #user.set_password(password)
         user.save()
         return user
 
