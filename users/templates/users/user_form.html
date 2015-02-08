@@ -1,1 +1,139 @@
-<h1>Formulaire d'inscription pour {{ user }}</h1>
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-md-9">
+
+        <!-- page-title start -->
+        <!-- ================ -->
+        <h1 id="forms" class="page-title">Salut {{ user.first_name }}</h1>
+        <h3>Bienvenue sur <strong>TAsduRAB</strong></h3>
+        <div class="alert alert-info alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          Nous avons besoin de quelques infos supplémentaires pour pouvoir finaliser ton inscription
+        </div>
+        <br>
+
+        <!-- Form start -->
+
+        <form class="form-horizontal" role="form" action="{% url 'home' %}" method="post">{% csrf_token %}
+
+          <div class="col-sm-offset-2 col-sm-10">
+            <h4>Informations personnelles</h4>
+          </div>
+
+          <div class="form-group">
+            <label for="inputFirstName" class="col-sm-2 control-label">{{ form.first_name.label }}</label>
+            <div class="col-sm-10">
+              {{ form.first_name }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputLastName" class="col-sm-2 control-label">{{ form.last_name.label }}</label>
+            <div class="col-sm-10">
+              {{ form.last_name }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputGroup" class="col-sm-2 control-label">{{ form.group.label }}</label>
+            <div class="col-sm-10">
+              {{ form.group }}
+            </div>
+          </div>
+
+
+          <!--<div class="row">
+            <div class="col-md-offset-3 col-md-3">
+              <div class="form-group">
+                <label class="control-label" for="inputSuccess2">Prénom:</label>
+                {{ user.first_name }}
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label" for="inputSuccess2">Nom:</label>
+                {{ user.last_name }}
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label" for="inputSuccess2">Groupe:</label>
+                {{ user.group }}
+              </div>
+            </div>
+          </div>-->
+
+
+          <div class="col-sm-offset-2 col-sm-10">
+            <h4>Contact</h4>
+          </div>
+
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">{{ form.email.label }}</label>
+            <div class="col-sm-10">
+              {{ form.email }}
+            </div>
+          </div>
+
+          {% if form.phone_number.errors %}
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            {{ form.phone_number.errors }}
+          </div>
+          {% endif %}
+          <div class="form-group">
+            <label for="inputPhoneNumber" class="col-sm-2 control-label">{{ form.phone_number.label }}</label>
+            <div class="col-sm-10">
+              {{ form.phone_number }}
+            </div>
+          </div>
+
+
+          <div class="col-sm-offset-2 col-sm-10">
+            <h4>Logement</h4>
+          </div>
+
+          <div class="form-group">
+            <label for="inputBuilding" class="col-sm-2 control-label">{{ form.building.label }}</label>
+            <div class="col-sm-10">
+              {{ form.building }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputRoom" class="col-sm-2 control-label">{{ form.room.label }}</label>
+            <div class="col-sm-10">
+              {{ form.room }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" value="Update" class="btn btn-default">S'enregistrer</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Form end -->
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}

@@ -7,6 +7,22 @@ from django.utils.translation import ugettext_lazy as _
 from housing.models import Building, Room
 
 
+class Group(models.Model):
+
+    title = models.CharField(max_length=20, verbose_name = 'Nom')
+
+    class Meta:
+        verbose_name = u'Groupe'
+        verbose_name_plural = u'Groupes'
+
+    def __unicode__(self):
+        return self.title
+
+    def __str__(self):
+        return self.title
+
+
+
 class UserManager(BaseUserManager):
 
     def get_by_natural_key(self, username):
@@ -18,7 +34,6 @@ class UserManager(BaseUserManager):
         user = self.model(username=username,
                           password=password)
 
-        #user.set_password(password)
         user.save()
         return user
 
@@ -40,17 +55,17 @@ class User(AbstractBaseUser):
 
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=255, unique=True)
-    first_name = models.CharField(max_length=255, default='')
-    last_name = models.CharField(max_length=255, default='')
-    graduation_year = models.CharField(max_length=10, default='')
+    first_name = models.CharField(max_length=255, default='', verbose_name = u'Prénom')
+    last_name = models.CharField(max_length=255, default='', verbose_name = 'Nom')
+    group = models.ForeignKey(Group, default=1, verbose_name = 'Groupe')
 
     # Contact
-    email = models.EmailField('email address', max_length=255, default='')
-    phone_number = models.CharField(max_length=255, default='')
+    email = models.EmailField(max_length=255, default='', verbose_name = 'Email')
+    phone_number = models.CharField(max_length=255, default='', verbose_name = 'Téléphone')
 
     # Housing
-    #building = models.ForeignKey(Building)
-    #room = models.ForeignKey(Room)
+    building = models.ForeignKey(Building)
+    room = models.ForeignKey(Room)
 
     # Permissions
     is_active = models.BooleanField(default=True)

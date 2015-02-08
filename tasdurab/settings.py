@@ -64,7 +64,7 @@ AUTHENTICATION_BACKENDS = (
 CAS_SERVER_URL = 'https://cascad.ensta.fr/'
 CAS_CREATE_USER = True
 CAS_IGNORE_REFERER = True
-CAS_REDIRECT_URL = 'http://localhost:8000/'
+CAS_REDIRECT_URL = 'http://localhost:8100/'
 
 
 ROOT_URLCONF = 'tasdurab.urls'
