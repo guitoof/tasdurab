@@ -3,6 +3,8 @@ from django.views.generic.edit import UpdateView
 from users.models import User
 from users.forms import UserRegistrationForm
 
+from django.http import HttpResponseRedirect
+
 
 class UserUpdateView(UpdateView):
 
@@ -15,28 +17,30 @@ class UserUpdateView(UpdateView):
         context['user'] = self.model
         return context
 
-    #def form_invalid(self, form):
+    def form_invalid(self, form):
+        return HttpResponseRedirect(reverse('users:register', kwargs = {'pk': 2}))
 
 
-    #def form_valid(self, form):
+    def form_valid(self, form):
         return super(UserUpdateView, self).form_valid(form)
 
 
     def post(self, request, *args, **kwargs):
 
         # get the user instance
-        self.object = self.get_object()
+        #self.object = self.get_object()
 
         # determine which form is being submitted
         # uses the name of the form's submit button
-        if 'Update' in request.POST:
-
-            # get the primary form
-            form_class = self.get_form_class()
-            form_name = 'Update'
-
-        # get the form
-        form = self.get_form(form_class)
+        # if 'Update' in request.POST:
+        #
+        #     # get the primary form
+        #     form_class = self.get_form_class()
+        #     form_name = 'Update'
+        #
+        # # get the form
+        # form = self.get_form(form_class)
+        form = self.get_form(self.form_class)
 
         # validate
         if form.is_valid():
