@@ -18,7 +18,7 @@ class UserUpdateView(UpdateView):
         return context
 
     def form_invalid(self, form):
-        return HttpResponseRedirect(reverse('users:register', kwargs = {'pk': 2}))
+        return HttpResponseRedirect("http://www.google.com")#reverse('users:register', kwargs = {'pk': 2}))
 
 
     def form_valid(self, form):
@@ -30,15 +30,7 @@ class UserUpdateView(UpdateView):
         # get the user instance
         #self.object = self.get_object()
 
-        # determine which form is being submitted
-        # uses the name of the form's submit button
-        # if 'Update' in request.POST:
-        #
-        #     # get the primary form
-        #     form_class = self.get_form_class()
-        #     form_name = 'Update'
-        #
-        # # get the form
+        # get the form
         # form = self.get_form(form_class)
         form = self.get_form(self.form_class)
 
@@ -46,7 +38,7 @@ class UserUpdateView(UpdateView):
         if form.is_valid():
             return self.form_valid(form)
         else:
-            return self.form_invalid(**{form_name: form})
+            return self.form_invalid(form)
 
 
 class UserDetailView(DetailView):
