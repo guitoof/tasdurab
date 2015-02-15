@@ -12,23 +12,22 @@ class CustomUserAdmin(UserAdmin):
     # These override the definitions on the base UserAdmin
     # that reference the removed 'username' field
     fieldsets = (
-        (_('Personal informations'), {'fields': ('username', 'first_name', 'last_name', 'graduation_year')}),
+        (_('Personal informations'), {'fields': ('username', 'first_name', 'last_name', 'group')}),
         (_('Contact'), {'fields': ('email', 'phone_number')}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser','user_permissions')}),
-        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+        (_('Permissions'), {'fields': ('is_active','is_registered')}),
     )
     add_fieldsets = (
         (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2')}
+            #'classes': ('wide',),
+            'fields': ('username', 'first_name', 'last_name')}
         ),
     )
     form = CustomUserChangeForm
     add_form = CustomUserCreationForm
-    list_display = ('username', 'first_name', 'last_name', 'group', 'email', 'phone_number', 'is_active', 'is_staff', 'is_superuser')
+    list_display = ('username', 'first_name', 'last_name', 'group', 'email', 'phone_number', 'building', 'room', 'is_registered', 'is_active', 'is_staff')
     list_filter = ()
     search_fields = ('username', 'email', 'first_name', 'last_name')
-    ordering = ('email',)
+    ordering = ('username',)
     filter_horizontal = ()
 
 admin.site.register(User, CustomUserAdmin)
