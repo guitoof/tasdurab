@@ -82,11 +82,6 @@ class User(AbstractBaseUser):
         verbose_name = _('Utilisateur')
         verbose_name_plural = _('Utilisateurs')
 
-    def __init__(self, id, username, password, first_name, last_name, group, email, phone_number, building, room, is_active, is_staff, is_admin, is_registered):
-        super(AbstractBaseUser, self).__init__()
-        self.password = None
-        #self.password.default = ''
-
 
     def __unicode__(self):
         return '%s %s' % (self.first_name, self.last_name)
