@@ -57,15 +57,15 @@ class User(AbstractBaseUser):
     username = models.CharField(max_length=255, unique=True)
     first_name = models.CharField(max_length=255, default='', verbose_name = u'Prénom')
     last_name = models.CharField(max_length=255, default='', verbose_name = 'Nom')
-    group = models.ForeignKey(Group, default=1, null=True, verbose_name = 'Groupe')
+    group = models.ForeignKey(Group, default=1, null=True, blank=True, verbose_name = 'Groupe')
 
     # Contact
     email = models.EmailField(max_length=255, default='', null=True, verbose_name = 'Email')
     phone_number = models.CharField(max_length=255, default='', null=True, verbose_name = 'Téléphone')
 
     # Housing
-    building = models.ForeignKey(Building, null=True)
-    room = models.ForeignKey(Room, null=True)
+    building = models.ForeignKey(Building, default=1, null=True)
+    room = models.ForeignKey(Room, default=1, null=True)
 
     # Permissions
     is_active = models.BooleanField(default=True)
@@ -81,11 +81,6 @@ class User(AbstractBaseUser):
     class Meta:
         verbose_name = _('Utilisateur')
         verbose_name_plural = _('Utilisateurs')
-
-    def __init__(self, id, username, password, first_name, last_name, group, email, phone_number, building, room, is_active, is_staff, is_admin, is_registered):
-        super(AbstractBaseUser, self).__init__()
-        self.password = None
-        #self.password.default = ''
 
 
     def __unicode__(self):

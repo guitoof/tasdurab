@@ -39,7 +39,7 @@ class UserRegistrationForm(ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'email', 'phone_number', 'building', 'room']
+        fields = ['first_name', 'last_name', 'group', 'email', 'phone_number', 'building', 'room']
         widgets = {
             'first_name': TextInput(attrs={'class': 'form-control', 'id': 'inputFirstName', 'disabled':True}),
             'last_name': TextInput(attrs={'class': 'form-control', 'id': 'inputLastName', 'disabled':True}),
