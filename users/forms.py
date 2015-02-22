@@ -39,23 +39,14 @@ class UserRegistrationForm(ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'group', 'email', 'phone_number', 'building', 'room']
+        fields = ['group', 'email', 'phone_number', 'building', 'room']
         widgets = {
-            'first_name': TextInput(attrs={'class': 'form-control', 'id': 'inputFirstName', 'disabled':True}),
-            'last_name': TextInput(attrs={'class': 'form-control', 'id': 'inputLastName', 'disabled':True}),
-            'group': Select(attrs={'class': 'form-control', 'id': 'inputGroup', 'disabled':True}),
+            'group': Select(attrs={'class': 'form-control', 'id': 'inputGroup'}),
             'email': EmailInput(attrs={'class': 'form-control', 'id': 'inputEmail', 'placeholder': 'prenom.nom@ensta-paristech.fr'}),
             'phone_number': TextInput(attrs={'class': 'form-control', 'id': 'inputPhoneNumber', 'placeholder': '06******'}),
             'building': Select(attrs={'class': 'form-control', 'id': 'inputBuilding'}),
             'room': Select(attrs={'class': 'form-control', 'id': 'inputRoom'}),
         }
-
-    def __init__(self, *args, **kwargs):
-        super(ModelForm, self).__init__(*args, **kwargs)
-        # first_name, last_name and group fields are disabled and not supposed to me changed
-        # self.fields['first_name'].required = False
-        # self.fields['last_name'].required = False
-        # self.fields['group'].required = False
 
 
     def clean_email(self):
