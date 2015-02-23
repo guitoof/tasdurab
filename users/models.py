@@ -55,9 +55,9 @@ class User(AbstractBaseUser):
 
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=255, unique=True)
-    first_name = models.CharField(max_length=255, default='', verbose_name = u'Prénom')
+    first_name = models.CharField(max_length=255, verbose_name = u'Prénom')
     last_name = models.CharField(max_length=255, default='', verbose_name = 'Nom')
-    group = models.ForeignKey(Group, default=1, null=True, blank=True, verbose_name = 'Groupe')
+    group = models.ForeignKey(Group, default=2, null=True, blank=True, verbose_name = 'Promo')
 
     # Contact
     email = models.EmailField(max_length=255, default='', null=True, verbose_name = 'Email')
