@@ -32,6 +32,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = u'Produit'
         verbose_name_plural = u'Produits'
+        ordering = ['expiry_date']
 
     def __unicode__(self):
         return self.title

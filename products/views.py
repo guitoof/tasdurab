@@ -12,6 +12,7 @@ class ProductListView(ListView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(ProductListView, self).get_context_data(**kwargs)
+        context['products'] = list(self.get_queryset())
         # Add in a QuerySet of all the categories
         context['category_list'] = Category.objects.all()
         # Add the create Product form to the QuerySet to be display in a modal

@@ -79,7 +79,6 @@
             </div>
           </aside>
           
-
            <div class="col-md-6 col-md-offset-1">
                   
                   <!-- timeline start -->
@@ -89,10 +88,15 @@
                     
                     <div class="timeline-date-label clearfix"></div>
 
+
                     {% for product in product_list %}
 
                     <!-- timeline item start -->
-                    <div class="timeline-item object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
+                      {% if forloop.counter|divisibleby:2 %}
+                      <div class="timeline-item pull-right object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
+                      {% else %}
+                      <div class="timeline-item object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
+                      {% endif %}
                       <!-- blogpost start -->
                       <article class="clearfix blogpost">
                         <div class="overlay-container">
