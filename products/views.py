@@ -1,6 +1,7 @@
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from products.models import Product, Category
+from users.models import User
 from products.forms import ProductForm
 
 from django.db.models import Q
@@ -16,7 +17,8 @@ class ProductListView(ListView):
 
     def filter_by_keyword(self, keyword):
         category_title_matches = Category.objects.filter(title__icontains=keyword)
-        return Product.objects.filter(Q(title__icontains=keyword) | Q(description__icontains=keyword) | Q(category=category_title_matches)).distinct().all()
+        owner_name_matches = User.objects.filter(Q(first_name__icontains=keyword) | Q(last_name__icontains=keyword))
+        return Product.objects.filter( Q(title__icontains=keyword) | Q(description__icontains=keyword) | Q(category=category_title_matches) | Q(owner=owner_name_matches) ).distinct().all()
 
     def filter_by_category(self, category_id):
         category = Category.objects.filter(pk=int(category_id))
