@@ -115,7 +115,7 @@
                           </div>
                           <div class="blogpost-content">
                             <header>
-                              <h2 class="title"><a href="blog-post.html"> {{ product.title }} </a></h2>
+                              <h2 class="title"><a href="{% url 'products:detail' product.id %}"> {{ product.title }} </a></h2>
                               <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#"> {{ product.owner }} </a></div>
                             </header>
                             <p> {{ product.description }} </p>

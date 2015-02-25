@@ -1,3 +1,10 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+
 <!-- main-container start -->
 <!-- ================ -->
 <section class="main-container">
@@ -15,70 +22,23 @@
 				<!-- page-title end -->
 
 				<div class="row">
-					<div class="col-md-4">
-						<!-- Nav tabs -->
-						<ul class="nav nav-pills white space-top" role="tablist">
-							<li class="active"><a href="#product-images" role="tab" data-toggle="tab" title="images"><i class="fa fa-camera pr-5"></i> Photo</a></li>
-							<li><a href="#product-video" role="tab" data-toggle="tab" title="video"><i class="fa fa-video-camera pr-5"></i> Video</a></li>
-						</ul>
-
-						<!-- Tab panes start-->
-						<div class="tab-content clear-style">
-							<div class="tab-pane active" id="product-images">
-								<div class="owl-carousel content-slider-with-controls-bottom">
-									<div class="overlay-container">
-										<img src="images/product-1-1.png" alt="">
-										<a href="images/product-1-1.png" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
-									</div>
-									<div class="overlay-container">
-										<img src="images/product-1-2.png" alt="">
-										<a href="images/product-1-2.png" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
-									</div>
-									<div class="overlay-container">
-										<img src="images/product-1-3.png" alt="">
-										<a href="images/product-1-3.png" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Tab panes end-->
 						<hr>
 						<hr>
-						<div class="row">
 							<form role="form">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label>Quantity</label>
-										<input type="text" class="form-control" value="1">
+										<label>Quantité</label>
+										<p>1</p>
 									</div>
-								</div>
-								<div class="col-md-4">
 									<div class="form-group">
-										<label>Color</label>
-										<select class="form-control">
-											<option>Red</option>
-											<option>White</option>
-											<option>Black</option>
-											<option>Blue</option>
-											<option>Orange</option>
-										</select>
+										<label>Déjà ouvert?</label>
+										<p>Oui</p>
 									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Size</label>
-										<select class="form-control">
-											<option>5.3"</option>
-											<option>5.7"</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<input type="submit" value="Add to Cart" class="btn btn-default">
+
+									<input type="submit" value="Contacter {{ product.owner.first_name}} " class="btn btn-default">
 								</div>
 							</form>
-						</div>
-					</div>
+					
 
 					<!-- product side start -->
 					<aside class="col-md-8">
@@ -88,8 +48,7 @@
 									<!-- Nav tabs -->
 									<ul class="nav nav-tabs" role="tablist">
 										<li class="active"><a href="#h2tab1" role="tab" data-toggle="tab"><i class="fa fa-file-text-o pr-5"></i>Description</a></li>
-										<li><a href="#h2tab2" role="tab" data-toggle="tab"><i class="fa fa-files-o pr-5"></i>Specifications</a></li>
-										<li><a href="#h2tab3" role="tab" data-toggle="tab"><i class="fa fa-star pr-5"></i>(3) Reviews</a></li>
+										<!-- <li><a href="#h2tab3" role="tab" data-toggle="tab"><i class="fa fa-star pr-5"></i>(3) Reviews</a></li> -->
 									</ul>
 									<!-- Tab panes -->
 									<div class="tab-content padding-top-clear padding-bottom-clear">
@@ -104,11 +63,104 @@
 					</aside>
 					<!-- product side end -->
 				</div>
+			</div>
 
 			</div>
 			<!-- main end -->
+
+
+			<!-- section start -->
+			<!-- ================ -->
+			<div class="section clearfix">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h2>Dans la même catégorie</h2>
+							<div class="separator-2"></div>
+							<div class="row grid-space-20">
+								<div class="col-md-3 col-sm-6">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>View Details</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Adipisicing 7.7" Tempora 4.2</a></h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae tempora debitis, sed illo officiis.</p>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>View Details</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Consectetur 5.5" Vitae</a></h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae tempora debitis, sed illo officiis.</p>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>View Details</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Rempora 15.4" 4GB illo</a></h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae tempora debitis, sed illo officiis.</p>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>View Details</span>
+											</a>
+											<span class="badge default-bg">Sale</span>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Dolor 4.4 Smartphone</a></h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- section end -->
 
 		</div>
 	</div>
 </section>
 <!-- main-container end -->
+
+{% endblock %}
