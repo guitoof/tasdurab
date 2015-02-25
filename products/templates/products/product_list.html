@@ -84,14 +84,18 @@
                   <!-- timeline start -->
                   <div class="timeline row">
 
-                    <div class="timeline-icon hidden-xs"><i class="fa fa-angle-double-up"></i></div>
-
-                    <div class="timeline-date-label clearfix"></div>
-
 
                     {% for product in product_list %}
 
+                    {% ifchanged product.expiry_date.month %}
+                    <div class="timeline-icon hidden-xs"><i class="fa fa-angle-double-up"></i></div>
+                    
+                    <div class="timeline-date-label clearfix"> {{ product.expiry_date | date:"F" }} {{ product.expiry_date.year }}</div>
+
+                    {% endifchanged %}
+
                     <!-- timeline item start -->
+
                       {% if forloop.counter|divisibleby:2 %}
                       <div class="timeline-item pull-right object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
                       {% else %}
@@ -111,14 +115,14 @@
                         <div class="blogpost-body">
                           <div class="post-info">
                             <span class="day">{{ product.expiry_date.day }}</span>
-                            <span class="month">{{ product.expiry_date | date:"b" }} {{ product.expiry_date.year }}</span>
+                            <span class="month">{{ product.expiry_date | date:"M" }} {{ product.expiry_date.year }}</span>
                           </div>
                           <div class="blogpost-content">
                             <header>
                               <h2 class="title"><a href="{% url 'products:detail' product.id %}"> {{ product.title }} </a></h2>
                               <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#"> {{ product.owner }} </a></div>
                             </header>
-                            <p> {{ product.description }} </p>
+                            <!-- <p> {{ product.description }} </p> -->
                           </div>
                         </div>
                         <footer class="clearfix">
