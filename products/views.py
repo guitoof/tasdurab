@@ -3,7 +3,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from products.models import Product, Category
 from users.models import User
-from products.forms import ProductForm
+from products.forms import ProductCreateForm
 
 from django.db.models import Q
 
@@ -39,7 +39,7 @@ class ProductListView(ListView):
         # Add in a QuerySet of all the categories
         context['category_list'] = Category.objects.all()
         # Add the create Product form to the QuerySet to be display in a modal
-        context['form'] = ProductForm()
+        context['form'] = ProductCreateForm()
 
         return context
 

@@ -16,7 +16,7 @@ class LoginRequiredMixin(object):
         return login_required(view, login_url = 'login', redirect_field_name = 'home')
 
 
-class UserUpdateView(LoginRequiredMixin, UpdateView):
+class UserUpdateView(UpdateView):
 
     model = User
     fields = '__all__'
@@ -27,11 +27,11 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
         context['user'] = self.model
         return context
 
-    def get(self, request, *args, **kwargs):
-        if request.user.is_registered:
-            return HttpResponseRedirect(reverse('home'))
-        else:
-            return super(UserUpdateView, self).get(**kwargs)
+    # def get(self, request, *args, **kwargs):
+    #     if request.user.is_registered:
+    #         return HttpResponseRedirect(reverse('home'))
+    #     else:
+    #         return super(UserUpdateView, self).get(**kwargs)
 
 
     def post(self, request, *args, **kwargs):
