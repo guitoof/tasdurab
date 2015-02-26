@@ -99,7 +99,9 @@
                   <footer class="clearfix">
                     <ul class="links pull-left">
                       <!-- <li><i class="fa fa-comment-o pr-5"></i> <a href="#">22 comments</a> |</li>  -->
-                      <li><i class="fa fa-tags pr-5"></i> <a href="#"> {{ product.category }} </a></li>
+                      <div class="tag">
+                        <a href="{% url 'products:index' %}?category={{product.category.id}}">{{ product.category.title }}</a>
+                      </div>
                     </ul>
                   </footer>
                 </article>
