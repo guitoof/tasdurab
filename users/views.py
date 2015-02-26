@@ -6,8 +6,17 @@ from users.forms import UserRegistrationForm
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
+from django.contrib.auth.decorators import login_required
 
-class UserUpdateView(UpdateView):
+class LoginRequiredMixin(object):
+
+    @classmethod
+    def as_view(cls, **initkwargs):
+        view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
+        return login_required(view, login_url = 'login', redirect_field_name = 'home')
+
+
+class UserUpdateView(LoginRequiredMixin, UpdateView):
 
     model = User
     fields = '__all__'
@@ -17,6 +26,12 @@ class UserUpdateView(UpdateView):
         context = super(UpdateView, self).get_context_data(**kwargs)
         context['user'] = self.model
         return context
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_registered:
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            return super(UserUpdateView, self).get(**kwargs)
 
 
     def post(self, request, *args, **kwargs):
@@ -34,6 +49,7 @@ class UserUpdateView(UpdateView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
+
 
 
 class UserDetailView(DetailView):

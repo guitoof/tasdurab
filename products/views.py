@@ -7,7 +7,7 @@ from products.forms import ProductForm
 
 from django.db.models import Q
 
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 #
 # class LoginRequiredMixin(object):
 #     @classmethod
@@ -58,3 +58,7 @@ class ProductCreateView(CreateView):
 
     model = Product
     fields = '__all__'
+
+    #@login_required
+    def dispatch(self, request, *args, **kwargs):        
+        return super(ProductCreateView, self).dispatch(request, *args, **kwargs)
