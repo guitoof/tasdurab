@@ -21,40 +21,12 @@
         <!-- ================ -->
         <h1 class="page-title">Produits</h1>
         <div class="separator-2"></div>
-        <!-- <p class="lead">Depuis le menu à droite, triez les produits par date, catégorie ou recherchez par mot-clef</p> -->
         <!-- page-title end -->
 
-        <!-- portfolio items start -->
-        <!-- <div class="image-boxes isotope-container row">
-          {% for product in product_list %}
-          <div class="col-sm-6 isotope-item web-design">
-            <div class="image-box">
-              <div class="overlay-container">
-                <div class="overlay">
-                  <div class="overlay-links">
-                    <a href="#"><i class="fa fa-link"></i></a>
-                  </div>
-                  <span>{% for category in product.categories.all %}{{category.title}}
-                    {% endfor %}
-                  </span>
-                </div>
-              </div>
 
-              <div class="image-box-body">
-                <h3 class="title"><a href="portfolio-item.html">{{ product.title }}</a></h3>
-                <p>{{ product.description }}</p>
-              </div>
-
-
-            </div>
-          </div>
-          {% endfor %}
-        </div> -->
-        <!-- portfolio items end -->
-
-
-      <!-- sidebar start -->
         <div class="row">
+
+          <!-- sidebar start -->
           <aside class="col-md-3 col-md-offset-0">
             <div class="sidebar">
               <div class="block clearfix">
@@ -78,76 +50,73 @@
               </form>
             </div>
           </aside>
+          <!-- sidebar end -->
 
-           <div class="col-md-6 col-md-offset-1">
+          <div class="col-md-6 col-md-offset-1">
 
-                  <!-- timeline start -->
-                  <div class="timeline row">
+            <!-- timeline start -->
+            <div class="timeline row">
 
 
-                    {% for product in product_list %}
+              {% for product in product_list %}
 
-                    {% ifchanged product.expiry_date.month %}
-                    <div class="timeline-icon hidden-xs"><i class="fa fa-angle-double-up"></i></div>
-                    
-                    <div class="timeline-date-label clearfix"> {{ product.expiry_date | date:"F" }} {{ product.expiry_date.year }}</div>
+              <!-- Display month of the expiry date when it changes -->
+              {% ifchanged product.expiry_date.month %}
+              <div class="timeline-icon hidden-xs"><i class="fa fa-angle-double-up"></i></div>
+              <div class="timeline-date-label clearfix"> {{ product.expiry_date | date:"F" }} {{ product.expiry_date.year }}</div>
+              {% endifchanged %}
 
-                    {% endifchanged %}
-
-                    <!-- timeline item start -->
-
-                      {% if forloop.counter|divisibleby:2 %}
-                      <div class="timeline-item pull-right object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
-                      {% else %}
-                      <div class="timeline-item object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
-                      {% endif %}
-                      <!-- blogpost start -->
-                      <article class="clearfix blogpost">
-                        <div class="overlay-container">
-                          <!-- <img src="images/blog-2.jpg" alt=""> -->
-                          <div class="overlay">
-                            <div class="overlay-links">
-                              <a href="blog-post.html"><i class="fa fa-link"></i></a>
-                              <a href="images/blog-1.jpg" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="blogpost-body">
-                          <div class="post-info">
-                            <span class="day">{{ product.expiry_date.day }}</span>
-                            <span class="month">{{ product.expiry_date | date:"M" }} {{ product.expiry_date.year }}</span>
-                          </div>
-                          <div class="blogpost-content">
-                            <header>
-                              <h2 class="title"><a href="{% url 'products:detail' product.id %}"> {{ product.title }} </a></h2>
-                              <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#"> {{ product.owner }} </a></div>
-                            </header>
-                            <!-- <p> {{ product.description }} </p> -->
-                          </div>
-                        </div>
-                        <footer class="clearfix">
-                          <ul class="links pull-left">
-                            <!-- <li><i class="fa fa-comment-o pr-5"></i> <a href="#">22 comments</a> |</li>  -->
-
-                            {% for category in product.categories.all %}
-
-                            <li><i class="fa fa-tags pr-5"></i> <a href="#"> {{ category }} </a></li>
-
-                            {% endfor %}
-                          </ul>
-                        </footer>
-                      </article>
-                      <!-- blogpost end -->
+              <!-- timeline item start -->
+              {% if forloop.counter|divisibleby:2 %}
+              <div class="timeline-item pull-right object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
+              {% else %}
+              <div class="timeline-item object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
+              {% endif %}
+                <!-- blogpost start -->
+                <article class="clearfix blogpost">
+                  <div class="overlay-container">
+                    <!-- <img src="images/blog-2.jpg" alt=""> -->
+                    <div class="overlay">
+                      <div class="overlay-links">
+                        <a href="blog-post.html"><i class="fa fa-link"></i></a>
+                        <a href="images/blog-1.jpg" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
+                      </div>
                     </div>
-                    <!-- timeline item end -->
-                    {% endfor %}
-
                   </div>
-                  <!-- timeline end -->
+                  <div class="blogpost-body">
+                    <div class="post-info">
+                      <span class="day">{{ product.expiry_date.day }}</span>
+                      <span class="month">{{ product.expiry_date | date:"M" }} {{ product.expiry_date.year }}</span>
+                    </div>
+                    <div class="blogpost-content">
+                      <header>
+                        <h2 class="title"><a href="{% url 'products:detail' product.id %}"> {{ product.title }} </a></h2>
+                        <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#"> {{ product.owner }} </a></div>
+                      </header>
+                      <!-- <p> {{ product.description }} </p> -->
+                    </div>
+                  </div>
+                  <footer class="clearfix">
+                    <ul class="links pull-left">
+                      <!-- <li><i class="fa fa-comment-o pr-5"></i> <a href="#">22 comments</a> |</li>  -->
+                      <li><i class="fa fa-tags pr-5"></i> <a href="#"> {{ product.category }} </a></li>
+                    </ul>
+                  </footer>
+                </article>
+                <!-- blogpost end -->
 
-               </div>
+              </div>
+              <!-- timeline item end -->
 
-         <!-- Modal start -->
+              {% endfor %}
+
+            </div>
+            <!-- timeline end -->
+
+          </div>
+
+
+          <!-- Modal start -->
           <!-- ============================================================================== -->
           <!-- Button trigger modal -->
           <aside class="col-md-1 col-md-offset-0">
@@ -161,7 +130,6 @@
             <!-- Modal end -->
           </aside>
 
-      <!-- sidebar end -->
 
 
         <!-- pagination start -->
@@ -182,13 +150,13 @@
       </div>
       <!-- main end -->
 
-
     </div>
   </div>
 </section>
+<!-- section end -->
+<!-- ================ -->
 <!-- main-container end -->
-<!-- section end -->
-<!-- section end -->
+<!-- ================ -->
 
 
 {% endblock %}
