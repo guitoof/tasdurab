@@ -39,8 +39,14 @@ class ProductDetailView(DetailView):
 
     model = Product
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(ProductDetailView, self).get_context_data(**kwargs)
+        # Add in a QuerySet of all the related products
+        context['related_product_list'] = Product.objects.filter( Q(category=self.object.category) ).exclude( id=self.object.id )
+        return context
+
 class ProductCreateView(CreateView):
 
     model = Product
     fields = '__all__'
-

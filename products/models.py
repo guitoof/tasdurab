@@ -26,9 +26,9 @@ class Product(models.Model):
     description = models.CharField(max_length=2048, verbose_name= 'Description')
     expiry_date = models.DateField(verbose_name='Expire le')
     owner = models.ForeignKey(User)
-    quantity = models.PositiveIntegerField(default=1, min=1, verbose_name=u'Quantité')
+    quantity = models.PositiveIntegerField(default=1, verbose_name=u'Quantité')
     is_opened = models.BooleanField(default= False, verbose_name=u'Déjà Ouvert?')
- 
+
 
     pub_date = models.DateTimeField('date published')
 

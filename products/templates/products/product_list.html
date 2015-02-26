@@ -78,8 +78,8 @@
                     <!-- <img src="images/blog-2.jpg" alt=""> -->
                     <div class="overlay">
                       <div class="overlay-links">
-                        <a href="blog-post.html"><i class="fa fa-link"></i></a>
-                        <a href="images/blog-1.jpg" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
+                        <a href="{% url 'products:detail' product.id %}"><i class="fa fa-link"></i></a>
+                        <a href="" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
                       </div>
                     </div>
                   </div>
@@ -90,7 +90,7 @@
                     </div>
                     <div class="blogpost-content">
                       <header>
-                        <h2 class="title"><a href="{% url 'products:detail' product.id %}"> {{ product.title }} </a></h2>
+                        <h2 class="title"><a href="{% url 'products:detail' product.id %}"> {{ product }} </a></h2>
                         <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#"> {{ product.owner }} </a></div>
                       </header>
                       <!-- <p> {{ product.description }} </p> -->
@@ -100,7 +100,7 @@
                     <ul class="links pull-left">
                       <!-- <li><i class="fa fa-comment-o pr-5"></i> <a href="#">22 comments</a> |</li>  -->
                       <div class="tag">
-                        <a href="{% url 'products:index' %}?category={{product.category.id}}">{{ product.category.title }}</a>
+                        <a href="{% url 'products:index' %}?category={{product.category.id}}">{{ product.category }}</a>
                       </div>
                     </ul>
                   </footer>

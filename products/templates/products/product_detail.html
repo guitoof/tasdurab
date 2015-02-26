@@ -18,7 +18,10 @@
 
 				<!-- page-title start -->
 				<!-- ================ -->
-				<h1 class="page-title margin-top-clear">{{ product.title }}</h1>
+				<h1 class="page-title margin-top-clear">{{ product }}</h1>
+				<div class="tag">
+					<a href="#related-products">{{ product.category }}</a>
+				</div>
 				<!-- page-title end -->
 
 				<div class="row">
@@ -42,7 +45,7 @@
 									<input type="submit" value="Contacter {{ product.owner.first_name}} " class="btn btn-default">
 								</div>
 							</form>
-					
+
 
 					<!-- product side start -->
 					<aside class="col-md-8">
@@ -52,7 +55,7 @@
 									<!-- Nav tabs -->
 									<ul class="nav nav-tabs" role="tablist">
 										<li class="active"><a href="#h2tab1" role="tab" data-toggle="tab"><i class="fa fa-file-text-o pr-5"></i>Description</a></li>
-									
+
 										<!-- <li><a href="#h2tab3" role="tab" data-toggle="tab"><i class="fa fa-star pr-5"></i>(3) Reviews</a></li> -->
 									</ul>
 									<!-- Tab panes -->
@@ -74,94 +77,52 @@
 			<!-- main end -->
 
 
+			{% if related_product_list %}
 			<!-- section start -->
 			<!-- ================ -->
-			<div class="section clearfix">
+			<div class="section clearfix" id="related-products">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2>Dans la même catégorie</h2>
+							<h2>Dans la catégorie {{ product.category }}</h2>
 							<div class="separator-2"></div>
 							<div class="row grid-space-20">
+								{% for related_product in related_product_list %}
 								<div class="col-md-3 col-sm-6">
-									<div class="listing-item">
+									<!-- blogpost start -->
+									<article class="clearfix blogpost">
 										<div class="overlay-container">
-											<a href="shop-product.html" class="overlay small">
-												<i class="fa fa-plus"></i>
-												<span>View Details</span>
-											</a>
-										</div>
-										<div class="listing-item-body clearfix">
-											<h3 class="title"><a href="shop-product.html">Adipisicing 7.7" Tempora 4.2</a></h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae tempora debitis, sed illo officiis.</p>
-											<div class="elements-list pull-right">
-												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
-												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											<!-- <img src="images/blog-2.jpg" alt=""> -->
+											<div class="overlay">
+												<div class="overlay-links">
+													<a href="{% url 'products:detail' product.id %}"><i class="fa fa-link"></i></a>
+													<a href="" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
+												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6">
-									<div class="listing-item">
-										<div class="overlay-container">
-											<a href="shop-product.html" class="overlay small">
-												<i class="fa fa-plus"></i>
-												<span>View Details</span>
-											</a>
-										</div>
-										<div class="listing-item-body clearfix">
-											<h3 class="title"><a href="shop-product.html">Consectetur 5.5" Vitae</a></h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae tempora debitis, sed illo officiis.</p>
-											<div class="elements-list pull-right">
-												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
-												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+										<div class="blogpost-body">
+											<div class="post-info">
+												<span class="day">{{ related_product.expiry_date.day }}</span>
+												<span class="month">{{ related_product.expiry_date | date:"M" }} {{ related_product.expiry_date.year }}</span>
+											</div>
+											<div class="blogpost-content">
+												<header>
+													<h2 class="title"><a href="{% url 'products:detail' related_product.id %}"> {{ related_product }} </a></h2>
+													<div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#"> {{ related_product.owner }} </a></div>
+												</header>
+												<!-- <p> {{ product.description }} </p> -->
 											</div>
 										</div>
-									</div>
+									</article>
 								</div>
-								<div class="col-md-3 col-sm-6">
-									<div class="listing-item">
-										<div class="overlay-container">
-											<a href="shop-product.html" class="overlay small">
-												<i class="fa fa-plus"></i>
-												<span>View Details</span>
-											</a>
-										</div>
-										<div class="listing-item-body clearfix">
-											<h3 class="title"><a href="shop-product.html">Rempora 15.4" 4GB illo</a></h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae tempora debitis, sed illo officiis.</p>
-											<div class="elements-list pull-right">
-												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
-												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6">
-									<div class="listing-item">
-										<div class="overlay-container">
-											<a href="shop-product.html" class="overlay small">
-												<i class="fa fa-plus"></i>
-												<span>View Details</span>
-											</a>
-											<span class="badge default-bg">Sale</span>
-										</div>
-										<div class="listing-item-body clearfix">
-											<h3 class="title"><a href="shop-product.html">Dolor 4.4 Smartphone</a></h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-											<div class="elements-list pull-right">
-												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
-												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
-											</div>
-										</div>
-									</div>
-								</div>
+								{% endfor %}
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- section end -->
+			{% endif %}
 
 		</div>
 	</div>
