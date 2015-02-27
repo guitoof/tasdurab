@@ -52,11 +52,11 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 
 
 
-class UserDetailView(DetailView):
+class UserDetailView(LoginRequiredMixin, DetailView):
 
     model = User
 
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
-        context['user'] = self.model
+        context['owner'] = self.object
         return context
