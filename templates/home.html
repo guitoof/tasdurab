@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- slideshow start -->
+				<!-- ================ -->
+				<div class="slideshow white-bg">
+					
+					<!-- slider revolution start -->
+					<!-- ================ -->
+					<div class="slider-banner-container">
+						<div class="slider-banner-fullscreen">
+							<ul>
+								<!-- slide 1 start -->
+								<li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Slide 1" class="light-translucent-bg">
+								
+								<!-- main image -->
+								<!-- <img src="{% static "images/ENSTA.jpg" %}  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat"> -->
+
+								<!-- LAYER NR. 1 -->
+								<div class="tp-caption very_large_text black sfl tp-resizeme"
+									data-x="center"
+									data-y="70" 
+									data-speed="600"
+									data-start="0"
+									data-end="10000"
+									data-endspeed="600">T'as du RAB - Les News
+								</div>
+
+								<!-- LAYER NR. 2 -->
+								<div class="tp-caption sfr small_thin_dark text-center tp-resizeme"
+									data-x="center"
+									data-y="170" 
+									data-speed="600"
+									data-start="0"
+									data-end="10000"
+									data-endspeed="600">
+								</div>
+
+								<!-- LAYER NR. 3 -->
+								<div class="tp-caption tp-resizeme sfl"
+									data-x="center"
+									data-y="350" 
+									data-speed="600"
+									data-start="0"
+									data-end="10000"
+									data-endspeed="600"><a href="portfolio-item.html" class="btn btn-dark btn-lg">En savoir plus <i class="fa fa-angle-double-right pl-10"></i></a>
+								</div>
+
+								</li>
+								<!-- slide 1 end -->
+
+								<!-- slide 2 start -->
+								<li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Slide 2" class="light-translucent-bg">
+								
+								<!-- main image -->
+								<img src="images/slider-3-slide-2.jpg"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+								<!-- LAYER NR. 1 -->
+								<div class="tp-caption very_large_text black sfl tp-resizeme"
+									data-x="center"
+									data-y="70" 
+									data-speed="600"
+									data-start="0"
+									data-end="10000"
+									data-endspeed="600">T'as du RAB - Les News 2
+								</div>
+
+								<!-- LAYER NR. 2 -->
+								<div class="tp-caption sfr small_thin_dark text-center tp-resizeme"
+									data-x="center"
+									data-y="170" 
+									data-speed="600"
+									data-start="0"
+									data-end="10000"
+									data-endspeed="600">
+								</div>
+
+								<!-- LAYER NR. 3 -->
+								<div class="tp-caption sfl tp-resizeme"
+									data-x="center"
+									data-y="300" 
+									data-speed="600"
+									data-start="0"
+									data-end="10000"
+									data-endspeed="600"><a href="portfolio-item.html" class="btn btn-dark btn-lg">En savoir plus <i class="fa fa-angle-double-right pl-10"></i></a>
+								</div>
+
+								</li>
+								<!-- slide 2 end -->
+
+							</ul>
+						</div>
+					</div>
+					<!-- slider revolution end -->
+
+				</div>
+				<!-- slideshow end -->
+
+
+				<!-- section start -->
+			<!-- ================ -->
+			<div class="section clearfix object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="300">
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+
+							<h2>Les catégories de produits</h2>
+							<div class="separator-2"></div>
+
+							<!-- isotope filters start/ Need to change the "data-filter" by...? -->
+							<div class="filters">
+								<ul class="nav nav-pills">
+									<li class="active"><a href="#" data-filter="*">All</a></li>
+									<li><a href="#" data-filter=".web-design">Laitage</a></li>
+									<li><a href="#" data-filter=".app-development">Fruits/Legumes</a></li>
+									<li><a href="#" data-filter=".site-building">Oeufs</a></li>
+									<li><a href="#" data-filter=".site-building">Plats cuisinés</a></li>
+									<li><a href="#" data-filter=".site-building">Viande</a></li>
+									<li><a href="#" data-filter=".site-building">Sauces</a></li>
+								</ul>
+							</div>
+							<!-- isotope filters end -->
+
+							<!-- portfolio items start -->
+							<div class="isotope-container row grid-space-20">
+								<div class="col-sm-6 col-md-4 isotope-item web-design">
+									<div class="image-box">
+										<div class="overlay-container">
+											<!-- <img src="images/portfolio-1.jpg" alt=""> -->
+											<a href="portfolio-item.html" class="overlay small">
+												<i class="fa fa-link"></i>
+												<span>Laitage</span>
+											</a>
+										</div>
+										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Laitage</a>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4 isotope-item app-development">
+									<div class="image-box">
+										<div class="overlay-container">
+											<!-- <img src="images/portfolio-2.jpg" alt=""> -->
+											<a href="portfolio-item.html" class="overlay small">
+												<i class="fa fa-link"></i>
+												<span>Fruits/Legumes</span>
+											</a>
+										</div>
+										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Fruits/Legumes</a>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4 isotope-item web-design">
+									<div class="image-box">
+										<div class="overlay-container">
+											<!-- <img src="images/portfolio-3.jpg" alt=""> -->
+											<a href="portfolio-item.html" class="overlay small">
+												<i class="fa fa-link"></i>
+												<span>Oeufs</span>
+											</a>
+										</div>
+										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Oeufs</a>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4 isotope-item site-building">
+									<div class="image-box">
+										<div class="overlay-container">
+											<!-- <img src="images/portfolio-4.jpg" alt=""> -->
+											<a href="portfolio-item.html" class="overlay small">
+												<i class="fa fa-link"></i>
+												<span>Viande</span>
+											</a>
+										</div>
+										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Viande</a>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4 isotope-item app-development">
+									<div class="image-box">
+										<div class="overlay-container">
+											<!-- <img src="images/portfolio-5.jpg" alt=""> -->
+											<a href="portfolio-item.html" class="overlay small">
+												<i class="fa fa-link"></i>
+												<span>Plats cuisinés</span>
+											</a>
+										</div>
+										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Plats cuisinés</a>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4 isotope-item web-design">
+									<div class="image-box">
+										<div class="overlay-container">
+											<!-- <img src="images/portfolio-6.jpg" alt=""> -->
+											<a href="portfolio-item.html" class="overlay small">
+												<i class="fa fa-link"></i>
+												<span>Sauces</span>
+											</a>
+										</div>
+										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Sauces</a>
+									</div>
+								</div>
+							</div>
+							<!-- portfolio items end -->
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- section end -->
+
+
+{% endblock %}
