@@ -67,6 +67,9 @@ class User(AbstractBaseUser):
     building = models.ForeignKey(Building, default=1, null=True)
     room = models.ForeignKey(Room, default=1, null=True)
 
+    # # Description
+    # description = models.CharField(max_length=255, verbose_name= 'Description')
+
     # Permissions
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
