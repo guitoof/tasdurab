@@ -82,11 +82,12 @@
             {{ form.is_opened.errors }}
           </div>
           {% endif %}
-          <div class="form-group">
-            <label for="inputIsOpened" class="col-sm-2 control-label">{{ form.is_opened.label }}</label>
-            <div class="col-sm-10">
-              {{ form.is_opened }}
-            </div>
+          <div class="checkbox">
+            <label for="inputIsOpened" class="col-sm-3 control-label">
+              <!-- <div class="col-sm-10"> -->
+              {{ form.is_opened }}{{ form.is_opened.label }}
+              <!-- </div> -->
+            </label>
           </div>
 
         </form>
@@ -100,6 +101,3 @@
     </div>
   </div>
 </div>
-
-
-     

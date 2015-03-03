@@ -27,11 +27,11 @@ class UserUpdateView(UpdateView):
         context['user'] = self.model
         return context
 
-    # def get(self, request, *args, **kwargs):
-    #     if request.user.is_registered:
-    #         return HttpResponseRedirect(reverse('home'))
-    #     else:
-    #         return super(UserUpdateView, self).get(**kwargs)
+    def get(self, request, *args, **kwargs):
+        if request.user.is_registered:
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            return super(UserUpdateView, self).get(**kwargs)
 
 
     def post(self, request, *args, **kwargs):
