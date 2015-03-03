@@ -27,11 +27,11 @@ class UserUpdateView(UpdateView):
         context['user'] = self.model
         return context
 
-    def get(self, request, *args, **kwargs):
-        if request.user.is_registered:
-            return HttpResponseRedirect(reverse('home'))
-        else:
-            return super(UserUpdateView, self).get(**kwargs)
+    # def get(self, request, *args, **kwargs):
+    #     if request.user.is_registered:
+    #         return HttpResponseRedirect(reverse('home'))
+    #     else:
+    #         return super(UserUpdateView, self).get(**kwargs)
 
 
     def post(self, request, *args, **kwargs):
@@ -62,4 +62,3 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         # Add in a QuerySet of all the user's products
         context['user_product_list'] = Product.objects.filter( Q(owner=self.object.owner) )
         return context
-
