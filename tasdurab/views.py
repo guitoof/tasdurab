@@ -1,5 +1,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
+from django.template import Context, loader
 from django.core.urlresolvers import reverse
+
 
 def home(request):
 
@@ -9,4 +11,9 @@ def home(request):
         url = reverse('users:register', kwargs={'pk': user.id})
         return HttpResponseRedirect(url)
     else:
-        return HttpResponseRedirect(reverse('products:index'))
+    	# news_list = News.objects.all()
+    	context = Context({
+    	# 	'news_list': news_list
+    	 	})
+    	template = loader.get_template('home.html')
+        return HttpResponse(template.render(context))

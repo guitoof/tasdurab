@@ -1,1 +1,48 @@
-<h1>Profil de {{ owner.id }}</h1>
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- main-container start -->
+			<!-- ================ -->
+			<section class="main-container">
+
+				<div class="container">
+					<div class="row">
+
+						<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-12">
+
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title"> {{ owner.first_name}}</h1>
+							<div class="separator-2"></div>
+							<div class="space"></div>
+							<!-- page-title end -->
+							
+							<div class="row">
+								<div class="col-lg-5 col-sm-8">
+								</div>
+								<div class="col-lg-5 col-md-12 col-sm-8 col-sm-offset-4 col-md-offset-0">
+									<div class="vertical-divider-left-lg side">
+										<h2 class="title">Contacter {{ owner.first_name }}</h2>
+										<ul class="list-icons">
+											<li><i class="fa fa-phone pr-5"></i> {{ owner.phone_number }}</li>
+											<li><i class="fa fa-envelope pr-5"></i><a href="mailto:{{ owner.email }}"> {{ owner.email }}</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- main end -->
+
+					</div>
+				</div>
+			</section>
+			<!-- main-container end -->
+
+
+
+{% endblock %}

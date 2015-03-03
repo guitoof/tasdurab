@@ -59,4 +59,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
         context['owner'] = self.object
+        # Add in a QuerySet of all the user's products
+        context['user_product_list'] = Product.objects.filter( Q(owner=self.object.owner) )
         return context
+
