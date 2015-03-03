@@ -128,16 +128,16 @@
 							{% for category in category_list %}
 							<!-- portfolio items start -->
 							<div class="isotope-container row grid-space-20">
-								<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="col-sm-3 col-md-3 isotope-item web-design">
 									<div class="image-box">
 										<div class="overlay-container">
 											<!-- <img src="images/portfolio-1.jpg" alt=""> -->
-											<a href="portfolio-item.html" class="overlay small">
+											<a href="{% url 'products:index' %}?category={{ category.id }}" class="overlay small">
 												<i class="fa fa-link"></i>
 												<span>{{ category }}</span>
 											</a>
 										</div>
-										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">{{ category }}</a>
+										<a href="{% url 'products:index' %}?category={{ category.id }}" class="btn btn-light-gray btn-lg btn-block">{{ category }}</a>
 									</div>
 								</div>
 							</div>
