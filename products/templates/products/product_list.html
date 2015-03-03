@@ -33,6 +33,9 @@
                 <!-- <h3 class="title">Catégories</h3> -->
                 <!-- <div class="separator"></div> -->
                 <div class="tags-cloud">
+                  <div class="tag">
+                    <a href="{% url 'products:index' %}">Tous</a>
+                  </div>
                   {% for category in category_list %}
                   <div class="tag">
                     <a href="{% url 'products:index' %}?category={{category.id}}">{{ category.title }}</a>
