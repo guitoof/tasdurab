@@ -112,7 +112,7 @@
 							<div class="separator-2"></div>
 
 							<!-- isotope filters start/ Need to change the "data-filter" by...? -->
-							<div class="filters">
+							<!-- <div class="filters">
 								<ul class="nav nav-pills">
 									<li class="active"><a href="#" data-filter="*">Tout</a></li>
 									<li><a href="#" data-filter=".web-design">Laitage</a></li>
@@ -122,85 +122,27 @@
 									<li><a href="#" data-filter=".site-building">Viande</a></li>
 									<li><a href="#" data-filter=".site-building">Sauces</a></li>
 								</ul>
-							</div>
+							</div> -->
 							<!-- isotope filters end -->
 
+							{% for category in category_list %}
 							<!-- portfolio items start -->
 							<div class="isotope-container row grid-space-20">
-								<div class="col-sm-6 col-md-4 isotope-item web-design">
+								<div class="col-sm-6 col-md-3 isotope-item web-design">
 									<div class="image-box">
 										<div class="overlay-container">
 											<!-- <img src="images/portfolio-1.jpg" alt=""> -->
 											<a href="portfolio-item.html" class="overlay small">
 												<i class="fa fa-link"></i>
-												<span>Laitage</span>
+												<span>{{ category }}</span>
 											</a>
 										</div>
-										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Laitage</a>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4 isotope-item app-development">
-									<div class="image-box">
-										<div class="overlay-container">
-											<!-- <img src="images/portfolio-2.jpg" alt=""> -->
-											<a href="portfolio-item.html" class="overlay small">
-												<i class="fa fa-link"></i>
-												<span>Fruits/Legumes</span>
-											</a>
-										</div>
-										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Fruits/Legumes</a>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4 isotope-item web-design">
-									<div class="image-box">
-										<div class="overlay-container">
-											<!-- <img src="images/portfolio-3.jpg" alt=""> -->
-											<a href="portfolio-item.html" class="overlay small">
-												<i class="fa fa-link"></i>
-												<span>Oeufs</span>
-											</a>
-										</div>
-										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Oeufs</a>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4 isotope-item site-building">
-									<div class="image-box">
-										<div class="overlay-container">
-											<!-- <img src="images/portfolio-4.jpg" alt=""> -->
-											<a href="portfolio-item.html" class="overlay small">
-												<i class="fa fa-link"></i>
-												<span>Viande</span>
-											</a>
-										</div>
-										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Viande</a>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4 isotope-item app-development">
-									<div class="image-box">
-										<div class="overlay-container">
-											<!-- <img src="images/portfolio-5.jpg" alt=""> -->
-											<a href="portfolio-item.html" class="overlay small">
-												<i class="fa fa-link"></i>
-												<span>Plats cuisinés</span>
-											</a>
-										</div>
-										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Plats cuisinés</a>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-4 isotope-item web-design">
-									<div class="image-box">
-										<div class="overlay-container">
-											<!-- <img src="images/portfolio-6.jpg" alt=""> -->
-											<a href="portfolio-item.html" class="overlay small">
-												<i class="fa fa-link"></i>
-												<span>Sauces</span>
-											</a>
-										</div>
-										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">Sauces</a>
+										<a href="portfolio-item.html" class="btn btn-light-gray btn-lg btn-block">{{ category }}</a>
 									</div>
 								</div>
 							</div>
 							<!-- portfolio items end -->
+							{% endfor %}
 
 						</div>
 					</div>
