@@ -20,22 +20,66 @@
 							<h1 class="page-title"> {{ owner.first_name}}</h1>
 							<div class="separator-2"></div>
 							<div class="space"></div>
-							<!-- page-title end -->
-							
-							<div class="row">
-								<div class="col-lg-5 col-sm-8">
-								</div>
-								<div class="col-lg-5 col-md-12 col-sm-8 col-sm-offset-4 col-md-offset-0">
+							<div class="col-lg-5 col-md-12 col-sm-8 col-sm-offset-4 col-md-offset-0">
 									<div class="vertical-divider-left-lg side">
-										<h2 class="title">Contacter {{ owner.first_name }}</h2>
 										<ul class="list-icons">
 											<li><i class="fa fa-phone pr-5"></i> {{ owner.phone_number }}</li>
 											<li><i class="fa fa-envelope pr-5"></i><a href="mailto:{{ owner.email }}"> {{ owner.email }}</a></li>
 										</ul>
 									</div>
 								</div>
-							</div>
-						</div>
+
+							</br>
+							</br>
+							</br>
+							</br>
+
+								{% if user_product_list %}
+								<!-- section start -->
+								<!-- ================ -->
+								<div class="section clearfix" id="related-products">
+									<div class="container">
+										<div class="row">
+											<div class="col-md-12">
+												<h2>Les autres produits déjà proposés par {{ owner.first_name}} </h2>
+												<div class="separator-2"></div>
+												<div class="row grid-space-20">
+													{% for product in user_product_list %}
+													<div class="col-md-3 col-sm-6">
+														<!-- blogpost start -->
+														<article class="clearfix blogpost">
+															<div class="overlay-container">
+																<!-- <img src="images/blog-2.jpg" alt=""> -->
+																<div class="overlay">
+																	<div class="overlay-links">
+																		<a href="{% url 'products:detail' product.id %}"><i class="fa fa-link"></i></a>
+																		<a href="" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
+																	</div>
+																</div>
+															</div>
+															<div class="blogpost-body">
+																<div class="post-info">
+																	<span class="day">{{ product.expiry_date.day }}</span>
+																	<span class="month">{{ product.expiry_date | date:"M" }} {{ product.expiry_date.year }}</span>
+																</div>
+																<div class="blogpost-content">
+																	<header>
+																		<h2 class="title"><a href="{% url 'products:detail' product.id %}"> {{ product }} </a></h2>
+																	</header>
+																	<!-- <p> {{ product.description }} </p> -->
+																</div>
+															</div>
+														</article>
+													</div>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- section end -->
+								{% endif %}
+							<!-- page-title end -->
 						<!-- main end -->
 
 					</div>
