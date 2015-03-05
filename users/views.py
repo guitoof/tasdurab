@@ -65,4 +65,3 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         # Add in a QuerySet of all the user's products
         context['user_product_list'] = Product.objects.filter( Q(owner=self.object) )
         return context
-

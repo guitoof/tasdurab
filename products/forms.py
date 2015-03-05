@@ -14,8 +14,8 @@ class ProductCreateForm(ModelForm):
         widgets = {
             'category': Select(attrs={'class': 'form-control', 'id': 'inputCategory'}),
             'title': TextInput(attrs={'class': 'form-control', 'id': 'inputTitle'}),
-            'description': Textarea(attrs={'class': 'form-control', 'id': 'inputDescritption'}),
+            'description': Textarea(attrs={'class': 'form-control', 'id': 'inputDescritption', 'rows': '3'}),
             'expiry_date': DateInput(attrs={'class': 'form-control', 'id': 'inputExpiryDate'}),
             'quantity': NumberInput(attrs={'class': 'form-control', 'id': 'inputQuantity'}),
-            'is_opened': CheckboxInput(attrs={'class': 'form-control', 'id': 'inputIsOpened'}),
+            'is_opened': CheckboxInput(attrs={'id': 'inputIsOpened' }),
         }
