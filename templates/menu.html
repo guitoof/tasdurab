@@ -23,6 +23,9 @@
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li>
+            <a href="{% url 'home' %}">Accueil</a>
+          </li>
+          <li>
             <a href="{% url 'products:index' %}">Produits</a>
           </li>
           {% if user.is_authenticated %}
