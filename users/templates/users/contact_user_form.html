@@ -1,0 +1,39 @@
+<div class="modal fade" id="contactUserModal" tabindex="-1" role="dialog" aria-labelledby="contactUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fermer</span></button>
+        <h4 class="modal-title" id="createProductModalLabel">Contacter {{ product.owner.first_name}} {{ product.owner.last_name }}</h4>
+      </div>
+      <div class="modal-body">
+
+        <!-- Form start -->
+        <form id="create-product-form" class="form-horizontal" role="form" action="create" method="post">{% csrf_token %}
+
+          {% if form.description.errors %}
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            {{ form.description.errors }}
+          </div>
+          {% endif %}
+          <div class="form-group">
+            <div id="contact-user-message" class="col-sm-10 col-sm-offset-1">
+              Si tu souhaites vraiment contacter {{ product.owner.first_name}} à propos du produit:
+              </br>
+              <strong> {{ product }} </strong>, un message va lui être envoyé. Si il/elle accepte ta demande, vous serez rapidement mis en contact.
+            </br>
+              A bientôt sur "T'as du rab?"
+            </br>
+            </br>
+            </div>
+          </div>
+        <!-- Form end -->
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Annuler</button>
+        <button  type="submit" value="Create" class="btn btn-sm btn-default">Contacter {{ product.owner.first_name}}</button>
+      </div>
+    </div>
+  </div>
+</div>

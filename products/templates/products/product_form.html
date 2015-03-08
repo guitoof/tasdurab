@@ -8,7 +8,7 @@
       <div class="modal-body">
 
         <!-- Form start -->
-        <form class="form-horizontal" role="form" action="" method="post">{% csrf_token %}
+        <form id="create-product-form" class="form-horizontal" role="form" action="create" method="post">{% csrf_token %}
 
           {% if form.category.errors %}
           <div class="alert alert-danger alert-dismissible" role="alert">
@@ -96,7 +96,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Annuler</button>
-        <button type="submit" class="btn btn-sm btn-default">Ajouter</button>
+        <button id="submit-product-create" type="submit" value="Create" class="btn btn-sm btn-default">Ajouter</button>
       </div>
     </div>
   </div>

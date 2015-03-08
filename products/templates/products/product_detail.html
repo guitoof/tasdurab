@@ -50,7 +50,21 @@
 							{% if product.is_opened = True %} <p>Oui</p> {% else %} <p>Non</p> {% endif %}
 						</div>
 
-						<input type="submit" value="Contacter {{ product.owner.first_name}} " class="btn btn-default pull-right">
+					          {% if user.is_authenticated %}
+					          <!-- Modal start -->
+					          <!-- ============================================================================== -->
+					          <!-- Button trigger modal -->
+					          <aside class="col-md-1">
+					            <button class="btn btn-default pull-right" data-toggle="modal" data-target="#contactUserModal">
+					              Contacter {{ product.owner.first_name}}
+					            </button>
+
+					            <!-- Modal -->
+					            {% include "users/contact_user_form.html" %}
+
+					            <!-- Modal end -->
+					          </aside>
+					          {% endif %}
 					</div>
 
 
