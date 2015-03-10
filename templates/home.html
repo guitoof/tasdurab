@@ -13,11 +13,12 @@
 					<div class="slider-banner-container">
 						<div class="slider-banner-fullscreen">
 							<ul>
+								{% for info in info_list %}
 								<!-- slide 1 start -->
 								<li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Slide 1" class="light-translucent-bg">
 
 								<!-- main image -->
-								<img src="{% static "images/ENSTA.jpg" %}"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+								<img src="{% static info.image.url %}"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
 								<!-- LAYER NR. 1 -->
 								<div class="tp-caption very_large_text black sfl tp-resizeme"
@@ -26,7 +27,7 @@
 									data-speed="600"
 									data-start="0"
 									data-end="10000"
-									data-endspeed="600">T'as du RAB - Les News
+									data-endspeed="600">{{ info.image.url }}
 								</div>
 
 								<!-- LAYER NR. 2 -->
@@ -51,45 +52,8 @@
 
 								</li>
 								<!-- slide 1 end -->
+								{% endfor %}
 
-								<!-- slide 2 start -->
-								<li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Slide 2" class="light-translucent-bg">
-
-								<!-- main image -->
-								<img src="images/slider-3-slide-2.jpg"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-
-								<!-- LAYER NR. 1 -->
-								<div class="tp-caption very_large_text black sfl tp-resizeme"
-									data-x="center"
-									data-y="70"
-									data-speed="600"
-									data-start="0"
-									data-end="10000"
-									data-endspeed="600">T'as du RAB - Les News 2
-								</div>
-
-								<!-- LAYER NR. 2 -->
-								<div class="tp-caption sfr small_thin_dark text-center tp-resizeme"
-									data-x="center"
-									data-y="170"
-									data-speed="600"
-									data-start="0"
-									data-end="10000"
-									data-endspeed="600">
-								</div>
-
-								<!-- LAYER NR. 3 -->
-								<div class="tp-caption sfl tp-resizeme"
-									data-x="center"
-									data-y="300"
-									data-speed="600"
-									data-start="0"
-									data-end="10000"
-									data-endspeed="600"><a href="portfolio-item.html" class="btn btn-dark btn-lg">En savoir plus <i class="fa fa-angle-double-right pl-10"></i></a>
-								</div>
-
-								</li>
-								<!-- slide 2 end -->
 
 							</ul>
 						</div>
