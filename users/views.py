@@ -8,6 +8,9 @@ from django.core.urlresolvers import reverse
 
 from django.contrib.auth.decorators import login_required
 
+from products.models import Product
+from django.db.models import Q
+
 class LoginRequiredMixin(object):
 
     @classmethod
@@ -60,5 +63,5 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         context = super(UserDetailView, self).get_context_data(**kwargs)
         context['owner'] = self.object
         # Add in a QuerySet of all the user's products
-        context['user_product_list'] = Product.objects.filter( Q(owner=self.object.owner) )
+        context['user_product_list'] = Product.objects.filter( Q(owner=self.object) )
         return context

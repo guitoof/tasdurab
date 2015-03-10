@@ -62,3 +62,21 @@ class ProductCreateView(CreateView):
     #@login_required
     def dispatch(self, request, *args, **kwargs):        
         return super(ProductCreateView, self).dispatch(request, *args, **kwargs)
+
+    # def form_valid(self, form):
+    #     return super(ProductCreateView, self).form_valid(form)
+
+    def post(self, request, *args, **kwargs):
+        print 'POST BIATCH'
+    #     # get the user instance
+    #     self.object = self.get_object()
+
+    #     # get the form
+    #     form = self.get_form(self.form_class)
+
+    #     # validate
+    #     if form.is_valid():
+    #         self.object.owner = request.user
+    #         return self.form_valid(form)
+    #     else:
+    #         return self.form_invalid(form)

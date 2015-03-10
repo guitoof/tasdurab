@@ -22,7 +22,7 @@ a, .text-default {
 	color: #204216;
 }
 a:hover {
-	color: #4c8606;
+	color: #6CED6B;
 }
 mark,
 .mark {
@@ -107,7 +107,7 @@ mark,
 .btn-default {
 	background-color: #204216;
 	color: #fff !important;
-	border-color: #4c8606;
+	border-color: #204216;
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -115,21 +115,21 @@ mark,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
 	color: #fff !important;
-	background-color: #4c8606;
-	border-color: #4c8606;
+	background-color: #6CED6B;
+	border-color: #6CED6B;
 }
 .btn-default.disabled,
 .btn-default[disabled],
 fieldset[disabled] .btn-default {
-	background-color: #4c8606;
-	border-color: #4c8606;
+	background-color: #6CED6B;
+	border-color: #6CED6B;
 }
 
 /* Button with transparent bg
 ---------------------------------- */
 .btn-white {
 	background-color: transparent;
-	color: #4c8606;
+	color: #6CED6B;
 	border: 1px solid #204216;
 }
 .btn-white:hover,
@@ -138,8 +138,8 @@ fieldset[disabled] .btn-default {
 .btn-white.active,
 .open .dropdown-toggle.btn-white {
 	color: #fff;
-	background-color: #4c8606;
-	border-color: #4c8606;
+	background-color: #6CED6B;
+	border-color: #6CED6B;
 }
 
 /* Forms
@@ -156,7 +156,7 @@ fieldset[disabled] .btn-default {
 	background-color: rgba(0, 0, 0, 0.25);
 }
 .default-bg .input-group-addon {
-	background-color: #4c8606;
+	background-color: #6CED6B;
 	border-color: #204216;
 	color: #fff;
 }
@@ -236,7 +236,7 @@ ul.pagination li.active a,
 }
 .light .footer-content .nav-pills > li.active > a:hover,
 .light .footer-content .nav-pills > li > a:hover {
-	color: #4c8606;
+	color: #6CED6B;
 }
 
 /* Collapse
@@ -431,15 +431,15 @@ a.overlay i {
 }
 .social-links li a:hover {
 	background-color: transparent;
-	border-color: #4c8606;
-	color: #4c8606;
+	border-color: #6CED6B;
+	color: #6CED6B;
 }
 .social-links .dropdown.open>button>i:before {
 	content: "\f00d";
 	color: #204216;
 }
 .header-top .social-links li a:hover {
-	color: #4c8606;
+	color: #6CED6B;
 }
 
 /* search and login
@@ -465,9 +465,9 @@ a.overlay i {
 }
 .stripped .header {
 	background: #204216;
-	-webkit-box-shadow: 0px 0px 60px #4c8606 inset;
-	-moz-box-shadow: 0px 0px 60px #4c8606 inset;
-	box-shadow: 0px 0px 60px #4c8606 inset;
+	-webkit-box-shadow: 0px 0px 60px #6CED6B inset;
+	-moz-box-shadow: 0px 0px 60px #6CED6B inset;
+	box-shadow: 0px 0px 60px #6CED6B inset;
 	color: #fff;
 }
 
