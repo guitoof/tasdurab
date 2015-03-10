@@ -8,7 +8,7 @@ class Info(models.Model):
     title = models.CharField(max_length=255, verbose_name='Titre')
     description = models.CharField(max_length=2048, verbose_name= 'Description')
     image = models.ImageField(
-        upload_to = os.path.join(settings.BASE_DIR, "infos/static/infos/images/"),
+        upload_to = os.path.join(settings.BASE_DIR, 'infos/static/infos/images/'),
     )
     pub_date = models.DateTimeField()
 
@@ -22,3 +22,6 @@ class Info(models.Model):
 
     def __str__(self):
         return self.title
+
+    def getFileName(self):
+        return self.image.url.split('/')[-1]

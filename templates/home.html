@@ -18,7 +18,7 @@
 								<li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Slide 1" class="light-translucent-bg">
 
 								<!-- main image -->
-								<img src="{{ info.image.url }}"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+								<img src="{% static "infos/images/" %}{{ info.getFileName }}"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
 								<!-- LAYER NR. 1 -->
 								<div class="tp-caption very_large_text black sfl tp-resizeme"
@@ -27,7 +27,7 @@
 									data-speed="600"
 									data-start="0"
 									data-end="10000"
-									data-endspeed="600">{{ info.image.url }}
+									data-endspeed="600">{{ info }}
 								</div>
 
 								<!-- LAYER NR. 2 -->
@@ -38,17 +38,18 @@
 									data-start="0"
 									data-end="10000"
 									data-endspeed="600">
+									{{ info.description }}
 								</div>
 
 								<!-- LAYER NR. 3 -->
-								<div class="tp-caption tp-resizeme sfl"
+								<!-- <div class="tp-caption tp-resizeme sfl"
 									data-x="center"
 									data-y="350"
 									data-speed="600"
 									data-start="0"
 									data-end="10000"
 									data-endspeed="600"><a href="portfolio-item.html" class="btn btn-dark btn-lg">En savoir plus <i class="fa fa-angle-double-right pl-10"></i></a>
-								</div>
+								</div> -->
 
 								</li>
 								<!-- slide 1 end -->
