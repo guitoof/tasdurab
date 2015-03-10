@@ -24,6 +24,9 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+    def get_filename(self):
+        return self.image.url.split('/')[-1]
+
 
 class Product(models.Model):
 
