@@ -1,5 +1,7 @@
 $(function(){
 
+    $.post()
+
     // var button = $('#create-product-button');
     // button.on(function(e) {
     //     alert('button');

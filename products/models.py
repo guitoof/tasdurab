@@ -2,11 +2,17 @@
 
 from django.db import models
 from users.models import User
+from tasdurab import settings
+import os
 
 
 class Category(models.Model):
 
     title = models.CharField(max_length=255, verbose_name='Nom')
+    image = models.ImageField(
+        upload_to = os.path.join(settings.BASE_DIR, 'products/static/categories/images'),
+        default = os.path.join(settings.BASE_DIR, 'products/static/categories/images/default.png')
+        )
 
     class Meta:
         verbose_name = u'Catégorie'
