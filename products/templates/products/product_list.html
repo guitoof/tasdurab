@@ -79,7 +79,7 @@
                 <!-- blogpost start -->
                 <article class="clearfix blogpost">
                   <div class="overlay-container">
-                      <img src="{% static "categories/images/" %} {{ product.category.get_filename }}" %}" alt="">
+                      <img src="{% static "categories/images/" %}{{ product.category.get_filename }}" alt="">
                     <div class="overlay">
                       <div class="overlay-links">
                         <a href="{% url 'products:detail' product.id %}"><i class="fa fa-link"></i></a>
