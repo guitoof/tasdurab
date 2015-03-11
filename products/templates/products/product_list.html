@@ -75,14 +75,14 @@
               {% else %}
               <div class="timeline-item object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
               {% endif %}
+
                 <!-- blogpost start -->
                 <article class="clearfix blogpost">
                   <div class="overlay-container">
-                    <!-- <img src="images/blog-2.jpg" alt=""> -->
+                      <img src="{% static "categories/images/" %} {{ product.category.get_filename }}" %}" alt="">
                     <div class="overlay">
                       <div class="overlay-links">
                         <a href="{% url 'products:detail' product.id %}"><i class="fa fa-link"></i></a>
-                        <a href="" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
                       </div>
                     </div>
                   </div>
@@ -114,6 +114,7 @@
               <!-- timeline item end -->
 
               {% endfor %}
+
 
             </div>
             <!-- timeline end -->
