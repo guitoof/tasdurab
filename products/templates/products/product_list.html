@@ -4,6 +4,44 @@
 
 {% block content %}
 
+
+      <!-- page-intro start-->
+      <!-- ================ -->
+      <div class="page-intro">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <ol class="breadcrumb">
+                <li><i class="fa fa-home pr-10"></i><a href="{% url 'home' %}">Accueil</a></li>
+                <li class="active">Produits</li>
+
+            <div class="row">
+
+                      {% for category in category_list %}
+              <!-- portfolio items start -->
+                          <div class="col-md-1 col-md-offset-1">
+                             <div class="image-box">
+                                <div class="overlay-container">
+                                   <img src="{% static "categories/images/" %}{{ category.get_filename }}" alt=""><a href="{% url 'products:index' %}?category={{ category.id }}" class="btn btn-light-gray btn-lg btn-block">{{ category }}</a>
+                                    <a href="{% url 'products:index' %}?category={{ category.id }}" class="overlay small">
+                                   <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                              </div>
+                          </div>
+             </div>
+                    
+                 
+              <!-- portfolio items end -->
+              {% endfor %}
+
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- page-intro end -->
+
 <!-- section start -->
 <!-- ================ -->
 <!-- main-container start -->
@@ -79,7 +117,6 @@
                 <!-- blogpost start -->
                 <article class="clearfix blogpost">
                   <div class="overlay-container">
-                      <img src="{% static "categories/images/" %}{{ product.category.get_filename }}" alt="">
                     <div class="overlay">
                       <div class="overlay-links">
                         <a href="{% url 'products:detail' product.id %}"><i class="fa fa-link"></i></a>
@@ -95,17 +132,21 @@
                       <header>
                         <h2 class="title"><a href="{% url 'products:detail' product.id %}"> {{ product }} </a></h2>
                         <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="{% url 'users:detail' product.owner.id %}"> {{ product.owner.first_name }} {{ product.owner.last_name }}</a></div>
+                        <!-- <img src="{% static "categories/images/" %}{{ product.category.get_filename }}" alt=""> -->
+                      <ul class="center">
+                      <!-- <li><i class="fa fa-comment-o pr-5"></i> <a href="#">22 comments</a> |</li>  -->
+                      <div class="tag">
+                        <h4>
+                        <a href="{% url 'products:index' %}?category={{product.category.id}}">{{ product.category }}</a>
+                        </h4>
+                      </div>
+                      </ul>
                       </header>
                       <!-- <p> {{ product.description }} </p> -->
                     </div>
                   </div>
                   <footer class="clearfix">
-                    <ul class="links pull-left">
-                      <!-- <li><i class="fa fa-comment-o pr-5"></i> <a href="#">22 comments</a> |</li>  -->
-                      <div class="tag">
-                        <a href="{% url 'products:index' %}?category={{product.category.id}}">{{ product.category }}</a>
-                      </div>
-                    </ul>
+                    <img src="{% static "categories/images/" %}{{ product.category.get_filename }}" alt="">
                   </footer>
                 </article>
                 <!-- blogpost end -->
