@@ -107,6 +107,17 @@
 						<div class="col-md-12">
 							<h2>Dans la catégorie {{ product.category }}</h2>
 							<div class="separator-2"></div>
+							<div class="col-sm-6 col-md-4 isotope-item web-design">
+									<div class="image-box">
+										<div class="overlay-container">
+											<img src="{% static "categories/images/" %}{{ product.category.get_filename }}" alt="">
+											<a href="{% url 'products:index' %}?category={{ category.id }}" class="overlay small">
+												<i class="fa fa-link"></i>
+												<span>{{ category }}</span>
+											</a>
+										</div>
+									</div>
+								</div>
 							<div class="row grid-space-20">
 								{% for related_product in related_product_list %}
 								<div class="col-md-3 col-sm-6">
