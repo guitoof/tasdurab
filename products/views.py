@@ -89,6 +89,5 @@ class ProductCreateView(AjaxableResponseMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        print 'test'
         form.instance.owner = self.request.user
         return super(ProductCreateView, self).form_valid(form)
