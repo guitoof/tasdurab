@@ -10,12 +10,12 @@ class ProductCreateForm(ModelForm):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        exclude = ('owner',)
         widgets = {
-            'category': Select(attrs={'class': 'form-control', 'id': 'inputCategory'}),
-            'title': TextInput(attrs={'class': 'form-control', 'id': 'inputTitle'}),
-            'description': Textarea(attrs={'class': 'form-control', 'id': 'inputDescritption', 'rows': '3'}),
-            'expiry_date': DateInput(attrs={'class': 'form-control', 'id': 'inputExpiryDate'}),
-            'quantity': NumberInput(attrs={'class': 'form-control', 'id': 'inputQuantity'}),
-            'is_opened': CheckboxInput(attrs={'id': 'inputIsOpened' }),
+            'category': Select(attrs={'class': 'form-control', 'id': 'input-category'}),
+            'title': TextInput(attrs={'class': 'form-control', 'id': 'input-title'}),
+            'description': Textarea(attrs={'class': 'form-control', 'id': 'input-descritption', 'rows': '3'}),
+            'expiry_date': DateInput(attrs={'class': 'form-control', 'id': 'input-expiry_date', 'placeholder': 'jj/mm/aaaa'}),
+            'quantity': NumberInput(attrs={'class': 'form-control', 'id': 'input-quantity'}),
+            'is_opened': CheckboxInput(attrs={'id': 'input-is_opened' }),
         }
